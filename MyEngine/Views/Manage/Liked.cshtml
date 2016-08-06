@@ -1,0 +1,51 @@
+﻿<link href="~/Content/Manage/liked.css" rel="stylesheet" />
+<script src="~/MyScripts/drop-image-animation.js" defer></script>
+
+<div class="liked" ng-controller="ManageLikedCtrl">
+    <div class="liked_content" ng-if="likedVisible">
+        <h1>У вас нет избранных объявлений</h1>
+        <h2>Избранные объявление - это интересные вам объявления, к которым вы, возможно, еще захотите вернуться.</h2>
+        <h2>Чтобы сохранить объявление как избранное, нужно нажать на звездочку рядом с объявлением.</h2>
+    </div>
+    <div class="liked_content" ng-if="!likedVisible">
+        <div class="content">
+            <div class="table">
+                <div ng-repeat="declaration in declarations" class="manage_container_forDeclaration"
+                     onmouseover="mouseOver(this)" onmouseout="mouseLeave(this)">
+                    <div class="drop_container">
+                        <ul ng-cloak>
+                            <li ng-repeat="imagePath in imagePaths | filter: {$: declaration.Id}">
+                                <img ng-class="$index == 0 ? 'active_c' : 'inactive_c'"
+                                     img-drop-mouseenter="declaration.Id, $index"
+                                     ng-src="~/Files/{{imagePath.ImagePath}}" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container_photo">
+                        <div ng-repeat="imagePath in imagePaths | filter: {$: declaration.Id, ImageType: 0}"
+                             class="photo" data-id-declaration="{{declaration.Id}}">
+                            <div class="loupe_image" ng-click="popUpDialogLoad(imagePath)" loupe-mouseevent>
+                                <img src="/Files/Images/loupe.png" />
+                            </div>
+
+                            <a class="liked_icon" title="Удалить"
+                               ng-click="likedDelete(declaration)">✖</a>
+
+                            <a href="/home/declaration/{{declaration.Id}}">
+                                <img id="{{declaration.Id}}" ng-src="/Files/{{imagePath.ImagePath}}" alt="No">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="main_declaration_content">
+                        <div class="container_title">
+                            <a href="/home/declaration/{{declaration.Id}}" ng-bind="declaration.Title"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<pop-up-dialog></pop-up-dialog>*@
+</div>
+

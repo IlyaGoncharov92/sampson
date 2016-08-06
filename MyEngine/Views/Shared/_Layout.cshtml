@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="/Files/Images/favicon.ico" type="image/x-icon">
+    <link href="~/Content/flexslider.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/Account/Registrations.css?6" rel="stylesheet"/>
+    <link href="~/Content/Account/LoginMenu.css?1" rel="stylesheet" />
+    <link href="~/Content/Home/popUpDialog.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="HeaderMenuCtrl" class="header_menu">
+        <div class="header_buttons">
+            <a href="/">Главная</a>
+            <a href="/home/catalog/womens">Каталог продукции</a>
+            <a href="/section/discount">Акции</a>
+            <a href="/section/services">Услуги</a>
+            <a href="/section/history">О компании</a>
+            <a href="/section/partners">Партнерам</a>
+            <a href="/section/contacts">Контакты</a>
+        </div>
+        
+        <a href="#" class="header_login" ng-click="clickLoginContent()">
+            @if(User.Identity.IsAuthenticated)
+            {
+                <img src="/Files/Images/login1.png" />
+                <span id="IsAuthenticated" class="true"></span>
+            }
+            else
+            {
+                <img src="/Files/Images/login0.png" />
+                <span id="IsAuthenticated" class="false"></span>
+            }
+        </a>
+        <div class="popup_login" ng-show="popupVisible">
+            <img src="~/Files/Images/popUpArrow.png" />
+            <div class="popup_login_content" ng-include="loadLoginMenu" ng-cloak></div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="photo_a">
+            <div class="flexslider" id="fl1">
+                <ul class="slides">
+                    <li ng-repeat="i in [21, 22, 23]">
+                        <img src="~/Files/Images/SlidesIndex/{{i}}.jpg" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="photo_b">
+            <div class="flexslider" id="fl2">
+                <ul class="slides">
+                    <li ng-repeat="i in [31, 32, 33, 34]">
+                        <img src="~/Files/Images/SlidesIndex/{{i}}.jpg" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="photo_d">
+            <img src="~/Files/Images/logos.png" alt="нет фото" />
+        </div>
+        <div class="photo_e">
+            <div class="text-two">
+                <p align="center">Тел.: +375 (212) 60-29-16 </p>
+                <p align="center">Факс: +375 (212) 60-29-19 </p>
+                <p align="center">comm@sampson.by </p>
+            </div>
+        </div>
+        <div class="photo_c">
+            <img src="~/Files/Images/SlidesIndex/11.jpg" alt="нет фото" />
+        </div>
+        <div ng-controller="CatalogCtrl" class="photo_g">
+            <input class="general_search" type="text" ng-model="$parent.query" />
+            <input class="loupe_search" src="~/Files/Images/lupa.png" type="image" />
+        </div>
+    </div>
+
+    <div class="general_menu" ng-controller="UnderMenuCtrl">
+        <div class="menu">
+            <a href="/home/catalog/mens" ng-class="{active_m: 'mens' === section}">Мужские</a>
+            <a href="/home/catalog/womens" ng-class="{active_m: 'womens' === section}">Женские</a>
+            <a href="/home/catalog/childrens" ng-class="{active_m: 'childrens' === section}">Детские</a>
+        </div>
+        <div ng-include="loadUnderMenu"></div>
+    </div>
+
+    <div class="container_gif"></div>
+
+    <div class="container" id="container_id">
+        <div data-ng-view="" id="div-view" class="view-slide-in"></div>
+    </div>
+    
+    <div style="display: none">@RenderBody()</div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/angular")
+    @RenderSection("scripts", required: false)
+    <script src="~/MyScripts/app.js"></script>
+    <script src="~/MyScripts/drop-image-animation.js"></script>
+    <script src="~/MyScripts/header-menu.js"></script>
+    <script src="~/MyScripts/layout.js"></script>
+    <script src="~/MyScripts/home/index.js"></script>
+    <script src="~/MyScripts/directives/directive.js"></script>
+    <script src="~/MyScripts/home/catalog.js"></script>
+    <script src="~/MyScripts/home/declaration.js"></script>
+    <script src="~/MyScripts/manage/liked.js"></script>
+    <script src="~/MyScripts/manage/manage-route.js"></script>
+    <script src="~/MyScripts/manage/manage.js"></script>
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+</body>
+</html>

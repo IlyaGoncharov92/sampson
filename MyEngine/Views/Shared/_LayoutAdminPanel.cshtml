@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/AdminPanel/AdminPanel.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <link href="~/Content/AdminPanel/ViewDeclaration.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <ul class="nav">
+            <li>@Html.ActionLink("Все пользователи", "ViewAllUsers", "AdminPanel")</li>
+            <li>@Html.ActionLink("Объявления", "ViewAllDeclarations", "AdminPanel")</li>
+            <li>@Html.ActionLink("Добавить объявление", "NewDeclaration", "AdminPanel")</li>
+        </ul>
+        <a href="/" class="home_link">Вернуться на сайт</a>
+    </header>
+
+    <div class="content">
+        <div class="content_context">
+            @RenderBody()
+        </div>
+    </div>  
+</body>
+</html>
+

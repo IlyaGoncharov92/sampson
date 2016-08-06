@@ -1,0 +1,69 @@
+﻿@using MyEngine.Models
+@model Declaration
+@{
+    ViewBag.Title = "ViewCurrentDeclarationHome";
+    Layout = "~/Views/Shared/_LayoutViewDeclarationHome.cshtml";
+}
+
+
+<div class="sidebar2">
+
+    <div class="sidebar2_content">
+        <div class="author">
+         <h4> Автор: @Html.ActionLink(@Model.Name,"")</h4>
+         </div>
+        <div class="phone_number">
+            <h4>Телефон: @Model.PhoneNumber</h4>
+</div>
+    </div>
+
+</div>
+
+<div class="photo_container">
+   <div class="slider">
+       @foreach (Image img in ViewBag.Images)
+        {
+         <img width="151" height="90" style="margin:5px 0px 0px 0px;" src="~/Files/@img.ImagePath">
+        }
+   </div>
+
+
+</div>
+
+
+
+
+<div class="title_container">
+    <div class="title_container_2">
+      <div class="Title_name"><h4>@Model.Title</h4></div>
+        <div class="Title_coast"><h2>@Model.Coast руб.</h2></div>
+    </div>
+</div>
+
+<div class="main_photo">
+
+
+
+    <div class="slider_main_photo">
+        @foreach (Image img in ViewBag.Images)
+        {
+            <img src="~/Files/@img.ImagePath">
+            break;
+        }
+    </div>
+
+    <div class="description">
+        @Model.Description
+    </div>
+   <div class="Category">
+       @{
+           Category cat=ViewBag.Category;      
+       }
+    <h4>Категория: @Html.ActionLink(cat.Name,"") </h4>
+      
+       <h4>Рубрика: @ViewBag.Section.Name</h4>
+
+     <h4>Дата публикации: @Model.PublicDate</h4>
+   </div>
+</div>
+

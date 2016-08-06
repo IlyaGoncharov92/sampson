@@ -1,0 +1,190 @@
+﻿body, html {
+    /overflow: hidden; /*срезает основной контеинер чтоб не было прокрутки важная хрень*/
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    width: 100%;
+    /height: 100%;
+    font-family: "Open Sans",sans-serif;
+}
+
+header {
+    height: 46px;
+    background: #1f1f1f;
+}
+
+.sidebar {
+    padding: 10;
+    margin: 0;
+    width: 160px;
+    position: absolute;
+    top: 33px;
+    left: 0px;
+    background-color: #1f1f1f;
+    height: 100%;
+}
+
+.content {
+    position: relative;
+    /background-color: #e9e9e9;
+    height: 100%;
+    overflow: auto;
+}
+
+.content_context {
+    margin: 20px 10px 20px 10px;
+    min-width: 800px;
+}
+
+.nav {
+    position: absolute;
+}
+
+    .nav li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    .nav a {
+        text-decoration: none;
+        background-color: #1f1f1f;
+        color: #FFF;
+    }
+
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
+    background-color: #000000;
+    color: #7fc7f1;
+}
+
+.home_link{
+    text-decoration: none;
+    background-color: #1f1f1f;
+    color: #FFF;
+    float: right;
+    margin-top: 14px;
+    margin-right: 40px;
+}
+
+.home_link:hover{
+    background-color: #000000;
+    color: #7fc7f1;
+}
+
+/*-----------------------------------------------------------*/
+
+.view_declaration_sort{
+    width: 400px;
+    height: 30px;
+}
+
+.view_declaration_sort a {
+        text-decoration: none;
+        color: #07a900;
+        margin-left: 20px;
+    }
+
+.adminTable table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 0;
+    text-shadow: 0 1px 0 #fff;
+    color: #2a2a2a;
+    background: #fafafa;
+    background-image: -moz-linear-gradient(top, #fff, #eaeaea, #fff); /* Firefox 3.6 */
+  background-image: -webkit-gradient(linear,center bottom,center top,from(#fff),color-stop(0.5, #eaeaea),to(#fff));
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.adminTable td, th {
+    height: 80px;
+    padding: 0 20px;
+    border-bottom: 1px solid #cdcdcd;
+    border-left: 1px solid #cdcdcd;
+    border-right: 1px solid #cdcdcd;
+    box-shadow: 0 1px 0 white;
+    -moz-box-shadow: 0 1px 0 white;
+    -webkit-box-shadow: 0 1px 0 white;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+     
+th {
+    background-color: #ffffff;
+    border-top: 1px solid #cdcdcd;
+}
+
+fieldset {
+    text-align: center;
+    font-size: 15px;
+    background-color: #efefef;
+    border: 1px dashed #2e7498;
+}
+
+/*-------------Фотографии админ панель---------------*/
+.photo_admin {
+    float: left;
+    width: 225px;
+    height: 170px;
+    padding: 3px;
+}
+
+/*Все для метода Region*/
+
+
+.add_Region {
+    width: 250px;
+    padding-bottom: 20px;
+}
+
+.add_City {
+    width: 350px;
+}
+
+.tb_region {
+    width: 620px;
+    float: left;
+}
+
+.tb_city {
+    float: left;
+    width: 690px;
+    margin-bottom: 50px;
+}
+
+legend {
+    color: #d50f0f;
+}
+
+
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffe6e0;
+}
+
+.validation-summary-errors {
+    font-size: 17px;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.t {
+    border: 1px dashed #b2b2b2;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 5px;
+}

@@ -1,0 +1,41 @@
+﻿@using MyEngine.Models
+@model IEnumerable<Declaration>
+@{
+    ViewBag.Title = "AllDeclarations";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2 style="text-align:center">Объявления всех пользователей</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Заголовок</th>
+            <th>Описание</th>
+            <th>Дата Размещения</th>
+            <th>Пользователь</th>
+            <th>Номер телефона</th>
+            <th>Категория</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+@foreach (Declaration declaration in Model)
+{
+    <tr>
+        <td>@declaration.Id</td>
+        <td>@Html.ActionLink(declaration.Title, "ViewCurrentDeclaration", new { id=declaration.Id})</td>
+        <td>@declaration.Description</td>
+        <td>@declaration.PublicDate</td>
+        <td>@Html.ActionLink(declaration.User.Email, "ViewUser", new { id=declaration.User.Id})</td>
+        <td>@declaration.PhoneNumber</td>
+        <td>@declaration.Category.Name</td>
+        <td>
+            @Html.ActionLink("Ред", "EditDeclaration", new { id=declaration.Id}) |
+            @Html.ActionLink("Удал", "DeleteDeclaration", new { id=declaration.Id})
+        </td>
+    </tr>
+}
+
+</table>
+
+

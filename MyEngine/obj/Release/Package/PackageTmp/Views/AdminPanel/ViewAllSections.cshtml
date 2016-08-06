@@ -1,0 +1,31 @@
+﻿@using MyEngine.Models
+@model  IEnumerable<Section>
+
+@{
+    ViewBag.Title = "ViewAllSections";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2 style="text-align:center">Рубрики</h2>
+
+<p style="text-align:left">@Html.ActionLink("Добавить Рубрику","AddSection")</p>
+<table style="width:500px; float:left;">
+    <thead>
+        <tr>
+            <th>Id Рубрики</th>
+            <th>Название рубрики</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    @foreach (Section sec in Model)
+    {
+      <tr>
+          <td>@sec.Id</td>
+          <td>@sec.Name</td>
+          <td>
+              @Html.ActionLink("Ред", "EditSection", new { id=sec.Id}) |
+              @Html.ActionLink("Удал", "DeleteSection", new { id=sec.Id})
+          </td>
+      </tr>
+    }
+</table>

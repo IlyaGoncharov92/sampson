@@ -1,0 +1,16 @@
+﻿@using MyEngine.Models
+@model Section
+@{
+    ViewBag.Title = "EditSection";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<fieldset style="width:400px;">
+    <legend>Редактирование рубрики:  @Model.Name </legend>
+    @using (Html.BeginForm())
+    {
+        @Html.EditorFor(m=>m.Name) 
+                                   
+        <input type="submit" value="Редактировать">
+    }
+</fieldset>

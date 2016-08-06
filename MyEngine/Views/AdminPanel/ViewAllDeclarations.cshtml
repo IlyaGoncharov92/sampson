@@ -1,0 +1,63 @@
+﻿@using MyEngine.Models
+@model IEnumerable<Declaration>
+
+@{
+    ViewBag.Title = "AllDeclarations";
+    Layout = "~/Views/Shared/_LayoutAdminPanel.cshtml";
+}
+
+<h2 style="text-align:center">Объявления</h2>
+
+<div class="view_declaration_sort">
+    <a href="/AdminPanel/ViewAllDeclarations/?sort=0">Сортировать по дате</a>
+    <a href="/AdminPanel/ViewAllDeclarations/?sort=1">Сортировать по рейтингу</a>
+</div>
+
+<table class="adminTable">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Фото</th>
+            <th>Заголовок</th>
+            <th>Рейтинг</th>
+            <th>Дата Размещения</th>
+            <th>Пользователь</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    @foreach (Declaration declaration in Model)
+    {
+        <tr>
+            <td>@declaration.Id</td>
+            <td>
+                @foreach(Image img in ViewBag.Images)
+                {
+                    if (img.DeclarationId == declaration.Id)
+                    {
+                        <img class="view_all_image" src="~/Files/@img.ImagePath" />
+                        break;
+                    }
+                }
+            </td>
+            <td>@Html.ActionLink(declaration.Title, "ViewCurrentDeclaration", new { id = declaration.Id })</td>
+            <td>
+                <div class="vote">
+                    @using (Html.BeginForm("AddRate", "AdminPanel", FormMethod.Post))
+                    {
+                        <input type="hidden" value="@declaration.Id" name="id">
+                        <input type="number" value="@declaration.Rating" name="rate">
+                        <input type="submit" value="Add">
+                    }
+                </div>
+            </td>
+            <td>@declaration.PublicDate</td>
+            <td>@Html.ActionLink(declaration.User.Email, "ViewUser", new { id = declaration.User.Id })</td>
+
+            <td>
+                @Html.ActionLink("Ред", "EditDeclaration", new { id = declaration.Id }) |
+                @Html.ActionLink("Удал", "DeleteDeclaration", new { id = declaration.Id })
+            </td>
+        </tr>
+    }
+
+</table>

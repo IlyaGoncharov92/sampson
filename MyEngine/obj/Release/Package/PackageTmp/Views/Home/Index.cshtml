@@ -1,0 +1,48 @@
+﻿@using MyEngine.Models
+@model IEnumerable<Declaration>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="goCategory">
+
+    <table class="declarations">
+
+        @foreach (Declaration declaration in Model)
+        {
+            <tr>
+
+                <td>
+                    <div class="container_forDeclaration">
+                        <div class="photo">
+                            @foreach (Image img in ViewBag.Img)
+                            {
+                                if (img.DeclarationId == declaration.Id)
+                                {
+                                    <div class="img_container">
+                                        <img class="displayed" src="~/Files/@img.ImagePath">
+                                    </div>
+                                    break;
+                                }
+                            }
+                        </div>
+                        <div class="main_declaration_content">
+                            <div class="container_title">@Html.ActionLink(@declaration.Title, "ViewCurrentDeclarationHome", new { id = declaration.Id })</div>
+
+                            <div class="data">
+                                Подано:  @declaration.PublicDate
+                            </div>
+                            <div class="coast">
+                                @declaration.StrCoast руб.
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+

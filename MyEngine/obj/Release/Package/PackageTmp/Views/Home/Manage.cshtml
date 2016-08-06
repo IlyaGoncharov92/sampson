@@ -1,0 +1,35 @@
+﻿@using MyEngine.Models
+@model User
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Manage.cshtml";
+}
+
+<table class="declarations">
+
+    @foreach (Declaration declaration in Model.Declarations)
+    {
+        <tr>
+
+            <td>
+                <div class="container_forDeclaration">
+                    <div class="photo">
+                        @foreach (Image img in ViewBag.Img)
+                        {
+                            if (img.DeclarationId == declaration.Id)
+                            {
+                                <img width="130" height="70" src="~/Files/@img.ImagePath">
+                                break;
+                            }
+                        }
+                    </div>
+                    <div class="main_declaration_content">
+                        <div class="container_title">@Html.ActionLink(@declaration.Title, "ViewMyDeclaration", new { id=declaration.Id})</div>
+                    </div>
+                    
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

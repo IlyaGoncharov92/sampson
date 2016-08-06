@@ -1,0 +1,30 @@
+﻿@using MyEngine.Models
+@model IEnumerable<User>
+@{
+    ViewBag.Title = "ViewAllUsers";
+    Layout = "~/Views/Shared/_LayoutAdminPanel.cshtml";
+}
+
+<h3 style="text-align:center">Все пользователи зарегестрированные в системе</h3>
+<table class="adminTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email адрес</th>
+            <th>Дата рег.</th>
+            <th>Роль</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    @foreach (User user in Model)
+    {
+     <Tr>
+         <td>@user.Id</td>
+         <td>@Html.ActionLink(user.Email, "ViewUser", new { id=user.Id})</td>
+         <td>@user.CreationDate</td>
+         <td>@user.Role.Name</td>
+         <td>@Html.ActionLink("Просм", "ViewUser", new { id=user.Id}) |
+             @Html.ActionLink("Удал", "DeleteUser", new { id = user.Id })</td>
+     </Tr>
+    }
+</table>

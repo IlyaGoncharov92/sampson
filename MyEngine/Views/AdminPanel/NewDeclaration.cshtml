@@ -1,0 +1,126 @@
+﻿@using MyEngine.Models
+@model IEnumerable<Declaration>
+
+@{
+    ViewBag.Title = "NewDeclaration";
+    Layout = "~/Views/Shared/_LayoutAdminPanel.cshtml";
+}
+
+<script>
+    function confirmDelete() {
+        return confirm("Удалить выбранное объявление и всех его потомков?");
+    }
+
+    function allDelete() {
+        return confirm("Вы уверены что хотите очистить базу?");
+    }
+</script>
+
+<h2 style="text-align:center">Объявления</h2>
+
+<div class="declaration_sort">
+    <a href="/AdminPanel/NewDeclaration/?sort=0">Сортировать по дате</a>
+    <a href="/AdminPanel/NewDeclaration/?sort=1">Сортировать по рейтингу</a>
+</div>
+
+<form class="declaration_search">
+    <input type="search" name="searh" placeholder="description">
+    <input type="submit" value="Найти">
+</form> 
+
+<a href='/AdminPanel/DeleteDeclaration/?id=0&type=all' class="delete_all" onclick="return allDelete();">Удалить все</a>
+
+<div class="table" >
+    <div class="photo_add">
+        <a href='/AdminPanel/AddDeclaration/?type=parent'>
+            <img src='~/Files/Images/addImg.jpg' align="left" />
+        </a>
+        <a href='/AdminPanel/AddDeclaration/?type=parent' class="a2">Добавить объявление</a>
+    </div>
+    @foreach (var declaration in Model)
+    {
+        if (declaration.DeclarationType == "parent")
+        {
+            <div class="container_for_declaration">
+                <div class="container_parent_declaration">
+                    <div class="photo">
+                        @foreach (Image img in ViewBag.img)
+                        {
+                            if (img.DeclarationId == declaration.Id)
+                            {
+                                <img src="~/Files/@img.ImagePath" />
+                            }
+                        }
+                    </div>
+                    <div class="declaration_content">
+                        <div class="declaration_data">
+                            <ul>
+                                <li>Id: @declaration.Id</li>
+                                <li>Name: @declaration.Name</li>
+                                <li>Email: @declaration.User.Email</li>
+                                <li>Дата: @declaration.PublicDate</li>
+                            </ul>
+                        </div>
+
+                        <div class="declaration_data2">
+                            <ul>
+                                <li>Rate: @declaration.Rating</li>
+                                <li>Модель: @declaration.Description</li>
+                            </ul>
+                        </div>
+
+                        <div class="options">
+                            <ul>
+                                <li><a href='/AdminPanel/AddDeclaration/?type=child&parentId=@declaration.Id'>Добавить</a></li>
+                                <li><a>Редактировать</a></li>
+                                <li>
+                                    <a href='/AdminPanel/DeleteDeclaration/?id=@declaration.Id&type=parent'
+                                       onclick="return confirmDelete();">Удалить</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                @foreach (RelatedDeclaration related in ViewBag.related)
+                {
+                    if (declaration.Id == related.IdParent && declaration.Id != related.IdChild)
+                    {
+                        var declarationChild = Model.FirstOrDefault(f => f.Id == related.IdChild);
+
+                        <div class="container_child_declaration">
+                            <div class="photo_child">
+                                @foreach (Image img in ViewBag.img)
+                                {
+                                    if (img.DeclarationId == declarationChild.Id)
+                                    {
+                                        <img src="~/Files/@img.ImagePath" />
+                                    }
+                                }
+                            </div>
+                            <div class="declaration_content_child">
+                                <div class="declaration_data_child">
+                                    <ul>
+                                        <li>Id: @declarationChild.Id</li>
+                                        <li>Name: @declarationChild.Name</li>
+                                        <li>Email: @declarationChild.User.Email</li>
+                                        <li>Дата: @declarationChild.PublicDate</li>
+                                    </ul>
+                                </div>
+                                <div class="options_child">
+                                    <ul>
+                                        <li><a href='/AdminPanel/NewGeneral/?id=@declarationChild.Id'>Сделать главным</a></li>
+                                        <li><a>Сменить предка</a></li>
+                                        <li><a>Редактировать</a></li>
+                                        <li><a href='/AdminPanel/DeleteDeclaration/?id=@declarationChild.Id&type=child'>Удалить</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        }
+    }
+</div>
+

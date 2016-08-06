@@ -1,0 +1,179 @@
+.footer_content {
+    margin-top: -25px;
+}
+
+.container {
+    padding-top: 10px;
+}
+
+.table {
+    display: table;
+}
+
+.container_forDeclaration {
+    float: left;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 350px;
+}
+
+.drop_container {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    width: 237px;
+    height: 350px;
+    position: absolute;
+    visibility: hidden;
+}
+
+    .drop_container ul {
+        width: 54px;
+        float: right;
+        margin-top: 5px;
+        margin-right: 8px;
+    }
+
+    .drop_container li {
+        height: 72px;
+        list-style: none;
+        margin-top: 3px;
+    }
+
+    .drop_container:hover {
+        transition: .5s;
+        border: 1px solid #e3e3e3;
+        box-shadow: 0 0 7px rgba(140, 140, 140, 0.3);
+    }
+
+    .drop_container:not(:hover) {
+        transition: .5s;
+    }
+
+.photo {
+    position: relative;
+    height: 300px;
+    width: 225px;
+    margin: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.00);
+}
+
+.table img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.main_declaration_content a {
+    color: #000000;
+    margin-left: 75px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: cursive;
+    font-size: 14px;
+}
+
+    .main_declaration_content a:hover {
+        color: #22cf00;
+    }
+
+.active_c {
+    box-shadow: 0 0px 3px;
+    color: rgb(0, 239, 31);
+}
+
+.inactive_c {
+    box-shadow: 0 0px 0px;
+    color: #ffffff;
+}
+
+/*================= Angular animate ================*/
+
+.ng-hide-add, .ng-hide-remove {
+    /*ensure visibility during the transition */
+    display: block !important;
+    // yes, important;
+}
+
+.container_forDeclaration {
+        transition: 0.5s;
+    }
+        .container_forDeclaration.ng-enter {
+            /opacity: 0;
+        }
+        .container_forDeclaration.ng-enter-active{
+            opacity: 1;
+        }
+
+        .container_forDeclaration.ng-leave {
+            opacity: 1;
+        }
+        .container_forDeclaration.ng-leave-active {
+            opacity: 0;
+        }
+
+/*================= Angular animate.end ===============*/
+
+.loupe_image {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    cursor: pointer;
+    margin-left: 2px;
+    margin-top: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.00);
+}
+
+    .loupe_image a {
+        text-decoration: none;
+    }
+
+    .loupe_image img {
+        opacity: 0.3;
+        width: 20px;
+        height: 20px;
+        border: none;
+        border: 0;
+    }
+
+
+
+/*============================== liked ===============================*/
+#image_liked {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 200px;
+    top: 5px;
+    z-index: 1;
+}
+
+    #image_liked:hover {
+        background: url("/Files/Images/image_liked.png") no-repeat 0px 0px;
+    }
+
+.image_liked_true {
+    background: url("/Files/Images/image_liked.png") no-repeat 0px 0px;
+}
+
+.image_liked_false {
+    background: url("/Files/Images/image_liked.png") no-repeat 0px -23px;
+}
+
+.declaration_gif {
+    width: 1040px;
+    margin: 0 auto;
+    height: 100%;
+    position: absolute;
+}
+
+    .declaration_gif img {
+        position: absolute;
+        left: 50%;
+        top: 23%;
+        transform: translate(-50%, -50%);
+    }

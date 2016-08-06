@@ -1,0 +1,10 @@
+﻿.partners_company {
+    width: 100%;
+}
+
+    .partners_company img {
+        display: block;
+        width: 60%;
+        height: 450px;
+        margin: 0 auto;
+    }

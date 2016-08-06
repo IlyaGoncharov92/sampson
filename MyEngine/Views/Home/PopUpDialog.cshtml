@@ -1,0 +1,16 @@
+﻿<div class="popUpDialog" ng-show="showPopUpDialog">
+    <div class="general_pop_img">
+        <img class="general_image" ng-src="/Files/{{generalImagePath}}" ng-load="dropImgLoad()" />
+        <img class="image_popup_close" src="/Files/Images/popupClose.png" ng-click="popUpDialogClose()" />
+    </div>
+    <div class="drop_pop_img">
+        <ul ng-cloak>
+            <li ng-repeat="popImagePath in popImagePaths">
+                <img ng-class="$index == 0 ? 'pop_active' : 'inactive_c'"
+                     ng-src="~/Files/{{popImagePath.ImagePath}}"
+                     pop-img-drop-mouseenter />
+            </li>
+        </ul>
+    </div>
+    <div class="close_font" ng-click="popUpDialogClose()"></div>
+</div>

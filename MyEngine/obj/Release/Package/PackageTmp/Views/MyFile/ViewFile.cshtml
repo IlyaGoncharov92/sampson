@@ -1,0 +1,21 @@
+﻿@using MyEngine.Models
+@model  IEnumerable<Image>
+@{
+    ViewBag.Title = "ViewFile";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2 style="text-align:center">Обзор всех файлов</h2>
+
+@Html.ActionLink("Загрузить файл","UploadM","MyFile")
+<br /><br />
+
+@foreach (Image img in Model)
+{
+   <div class="photo_admin">
+    <div  style="position: absolute">@Html.ActionLink("Удалить", "DeletePhoto", new { id=img.Id})</div>
+     <a href="~/Files/@img.ImagePath"><img width="227" height="170" src="~/Files/@img.ImagePath"></a>
+      
+  </div>
+}
+

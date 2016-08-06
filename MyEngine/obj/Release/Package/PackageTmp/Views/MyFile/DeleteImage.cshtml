@@ -1,0 +1,19 @@
+﻿@using MyEngine.Models
+@model Image
+@{
+    ViewBag.Title = "DeleteImage";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2>DeleteImage</h2>
+@Html.DisplayFor(m=>m.ImagePath) <br />
+
+Id: @Html.DisplayFor(m => m.Id)<br />
+
+path: @ViewBag.F<br />
+Статус:@ViewBag.Status
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить">
+}

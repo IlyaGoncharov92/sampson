@@ -1,0 +1,10 @@
+﻿<div class="under_menu">
+    <div id="under">
+        <a href="/home/catalog/{{urlSection}}/{{contact.IdTitle}}"
+           ng-repeat="contact in contacts"
+           ng-bind="contact.Name"
+           ng-class="{active_m: contact.IdTitle === category}"
+           style="transition: none;">
+        </a>
+    </div>
+</div>

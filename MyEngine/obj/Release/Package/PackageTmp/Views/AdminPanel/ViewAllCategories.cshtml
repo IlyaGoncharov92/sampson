@@ -1,0 +1,39 @@
+﻿@using MyEngine.Models
+@model  IEnumerable<Category>
+
+@{
+    ViewBag.Title = "ViewAllCategories";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2 style="text-align:center">Текущие категории</h2>
+
+@Html.ActionLink("Добавить Категорию","AddCategory")
+
+    <table style="width:900px; margin-left:0;">
+        <thead>
+            <tr>
+                <th>Id Категории</th>
+                <th>Название Категории</th>
+                <th>Id Рубрики</th>
+                <th>Название Рубрики</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        @foreach (Category category in Model)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>@category.SectionId</td>
+                <td>@category.Section.Name</td>
+                <td>
+                    @Html.ActionLink("Редактировать", "EditCategory", new { id=category.Id}) |
+                    @Html.ActionLink("Удалить", "DeleteCategory", new { id=category.Id})
+                </td>
+            </tr>
+        }
+    </table>
+
+
+

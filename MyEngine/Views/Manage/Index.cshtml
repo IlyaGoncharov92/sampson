@@ -1,0 +1,35 @@
+﻿<link href="~/Content/Manage/manage.css?1" rel="stylesheet" />
+
+<div class="mContainer" ng-controller="ManageUrlCtrl">
+    <div class="mContainer_content">
+        <div class="mContent">
+            <div class="user_photo"
+                 ng-mouseenter="wrapVisible($event)"
+                 ng-mouseleave="wrapVisible($event)">
+                <div class="user_img">
+                    <img class="displayed" ng-src="/Files/PhotoUsers/{{imagePath}}" />
+                    <img class='load_gif' ng-show="gifVisible" src="/Files/Images/Gif/gifka.gif" />
+                    <input class="img_file" type="file" name="upload" />
+                </div>
+
+                <div class="user_photo_wrap" ng-show="wrapShow">
+                    <span>Загрузить фото</span>
+                </div>
+            </div>
+
+            <h4><a href="/manage/general">Личный кабинет</a></h4>
+
+            <ul>
+                <li><a href="/manage/liked">Избраннное</a></li>
+                <li><a>Мои данные</a></li>
+                <li><a>Мои рассылки</a></li>
+                <li><a href="/manage/messages">Мои сообщения</a></li>
+                <li><a>Мои обращения</a></li>
+                <li><a href="/manage/config">Настройки</a></li>
+                <li><a>Выйти</a></li>
+            </ul>
+        </div>
+
+        <div class="mContent_declarations" ng-include="manageContent"></div>
+    </div>
+</div>

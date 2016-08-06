@@ -1,0 +1,61 @@
+﻿<!--
+<div class="treeHTML">
+    @foreach (var sec in ViewBag.Section)
+    {
+     <div>
+         @sec.Name
+         <details>
+             <summary></summary>
+             @foreach (var cat in ViewBag.Category)
+             {
+                 if (cat.SectionId == sec.Id)
+                 {
+                   <div>@cat.Name</div>
+                 }
+             }
+         </details>
+     </div>
+    }
+</div>
+
+    -->
+
+<script src="~/Scripts/jquery-1.2.1.min.js" type="text/javascript"></script>
+<script src="~/Myscript/menu.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css"  href="~/Content/style.css" />
+
+<div class="sidebar1_menu">
+
+</div>
+
+<div class="menu_for_category">
+ 
+ <ul id="menu">
+     @foreach (var sec in ViewBag.Section)
+     {
+      <li class="sec">
+          <a href="#">@sec.Name</a>
+         <ul>
+             @foreach (var cat in ViewBag.Category)
+             {
+                 if (cat.SectionId == sec.Id)
+                 {
+                     string s = cat.Name;
+                    <li #sec>
+                      @Ajax.ActionLink(s, "GoCategory", new{id=cat.Id}, new AjaxOptions { UpdateTargetId = "goCategory" })
+                      <!--<a href="#">@cat.Name</a>-->
+                    
+                    </li>
+                 }
+
+             }
+         </ul>
+      </li>
+     }
+ </ul>
+
+
+</div>
+
+
+

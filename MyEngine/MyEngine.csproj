@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C7FF3C6F-69D3-4833-A0F0-49BF62145FA8}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyEngine</RootNamespace>
+    <AssemblyName>MyEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Новая папка (8)\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer.Mvc, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Новая папка (8)\ImageResizer.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\System-Web-Helpers.dll.1.0.1\lib\Net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\System-Web-Helpers.dll.1.0.1\lib\Net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\Олег\documents\visual studio 2013\Projects\MyEngine\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminPanelController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SectionController.cs" />
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511220850154_MigrateDB.cs" />
+    <Compile Include="Migrations\201511220850154_MigrateDB.Designer.cs">
+      <DependentUpon>201511220850154_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512031520312_MigrateDB1.cs" />
+    <Compile Include="Migrations\201512031520312_MigrateDB1.Designer.cs">
+      <DependentUpon>201512031520312_MigrateDB1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512042118026_MigrateDB2.cs" />
+    <Compile Include="Migrations\201512042118026_MigrateDB2.Designer.cs">
+      <DependentUpon>201512042118026_MigrateDB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512050024091_MigrateDB3.cs" />
+    <Compile Include="Migrations\201512050024091_MigrateDB3.Designer.cs">
+      <DependentUpon>201512050024091_MigrateDB3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512050211521_MigrateDB4.cs" />
+    <Compile Include="Migrations\201512050211521_MigrateDB4.Designer.cs">
+      <DependentUpon>201512050211521_MigrateDB4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512050215095_MigrateDB5.cs" />
+    <Compile Include="Migrations\201512050215095_MigrateDB5.Designer.cs">
+      <DependentUpon>201512050215095_MigrateDB5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512050222059_MigrateDB6.cs" />
+    <Compile Include="Migrations\201512050222059_MigrateDB6.Designer.cs">
+      <DependentUpon>201512050222059_MigrateDB6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512050225453_MigrateDB7.cs" />
+    <Compile Include="Migrations\201512050225453_MigrateDB7.Designer.cs">
+      <DependentUpon>201512050225453_MigrateDB7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512050825503_MigrateDB8.cs" />
+    <Compile Include="Migrations\201512050825503_MigrateDB8.Designer.cs">
+      <DependentUpon>201512050825503_MigrateDB8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512050841393_MigrateDB9.cs" />
+    <Compile Include="Migrations\201512050841393_MigrateDB9.Designer.cs">
+      <DependentUpon>201512050841393_MigrateDB9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512051332228_MigrateDB10.cs" />
+    <Compile Include="Migrations\201512051332228_MigrateDB10.Designer.cs">
+      <DependentUpon>201512051332228_MigrateDB10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603260626349_MigrateDB101.cs" />
+    <Compile Include="Migrations\201603260626349_MigrateDB101.Designer.cs">
+      <DependentUpon>201603260626349_MigrateDB101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603260628150_MigrateDB102.cs" />
+    <Compile Include="Migrations\201603260628150_MigrateDB102.Designer.cs">
+      <DependentUpon>201603260628150_MigrateDB102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603260929095_MigrateDB11.cs" />
+    <Compile Include="Migrations\201603260929095_MigrateDB11.Designer.cs">
+      <DependentUpon>201603260929095_MigrateDB11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603260930177_MigrateDB103.cs" />
+    <Compile Include="Migrations\201603260930177_MigrateDB103.Designer.cs">
+      <DependentUpon>201603260930177_MigrateDB103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603261243531_MigrateDB104.cs" />
+    <Compile Include="Migrations\201603261243531_MigrateDB104.Designer.cs">
+      <DependentUpon>201603261243531_MigrateDB104.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603261245448_MigrateDB105.cs" />
+    <Compile Include="Migrations\201603261245448_MigrateDB105.Designer.cs">
+      <DependentUpon>201603261245448_MigrateDB105.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603261249426_MigrateDB12.cs" />
+    <Compile Include="Migrations\201603261249426_MigrateDB12.Designer.cs">
+      <DependentUpon>201603261249426_MigrateDB12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603261250023_MigrateDB13.cs" />
+    <Compile Include="Migrations\201603261250023_MigrateDB13.Designer.cs">
+      <DependentUpon>201603261250023_MigrateDB13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603261303007_MigrateDB14.cs" />
+    <Compile Include="Migrations\201603261303007_MigrateDB14.Designer.cs">
+      <DependentUpon>201603261303007_MigrateDB14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270728020_MigrateDB15.cs" />
+    <Compile Include="Migrations\201603270728020_MigrateDB15.Designer.cs">
+      <DependentUpon>201603270728020_MigrateDB15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604011013053_MigrateDB16.cs" />
+    <Compile Include="Migrations\201604011013053_MigrateDB16.Designer.cs">
+      <DependentUpon>201604011013053_MigrateDB16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604011014061_MigrateDB17.cs" />
+    <Compile Include="Migrations\201604011014061_MigrateDB17.Designer.cs">
+      <DependentUpon>201604011014061_MigrateDB17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604031206578_MigrateDB18.cs" />
+    <Compile Include="Migrations\201604031206578_MigrateDB18.Designer.cs">
+      <DependentUpon>201604031206578_MigrateDB18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604031209239_MigrateDB19.cs" />
+    <Compile Include="Migrations\201604031209239_MigrateDB19.Designer.cs">
+      <DependentUpon>201604031209239_MigrateDB19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604031211023_MigrateDB20.cs" />
+    <Compile Include="Migrations\201604031211023_MigrateDB20.Designer.cs">
+      <DependentUpon>201604031211023_MigrateDB20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604051517160_MigrateDB21.cs" />
+    <Compile Include="Migrations\201604051517160_MigrateDB21.Designer.cs">
+      <DependentUpon>201604051517160_MigrateDB21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605061638512_MigrateDB22.cs" />
+    <Compile Include="Migrations\201605061638512_MigrateDB22.Designer.cs">
+      <DependentUpon>201605061638512_MigrateDB22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605101212530_MigrateDB23.cs" />
+    <Compile Include="Migrations\201605101212530_MigrateDB23.Designer.cs">
+      <DependentUpon>201605101212530_MigrateDB23.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605101215479_MigrateDB24.cs" />
+    <Compile Include="Migrations\201605101215479_MigrateDB24.Designer.cs">
+      <DependentUpon>201605101215479_MigrateDB24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605101322165_MigrateDB25.cs" />
+    <Compile Include="Migrations\201605101322165_MigrateDB25.Designer.cs">
+      <DependentUpon>201605101322165_MigrateDB25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605121157316_MigrateDB26.cs" />
+    <Compile Include="Migrations\201605121157316_MigrateDB26.Designer.cs">
+      <DependentUpon>201605121157316_MigrateDB26.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605121316577_MigrateDB27.cs" />
+    <Compile Include="Migrations\201605121316577_MigrateDB27.Designer.cs">
+      <DependentUpon>201605121316577_MigrateDB27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605121318421_MigrateDB28.cs" />
+    <Compile Include="Migrations\201605121318421_MigrateDB28.Designer.cs">
+      <DependentUpon>201605121318421_MigrateDB28.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605121750325_MigrateDB29.cs" />
+    <Compile Include="Migrations\201605121750325_MigrateDB29.Designer.cs">
+      <DependentUpon>201605121750325_MigrateDB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605122103067_MigrateDB30.cs" />
+    <Compile Include="Migrations\201605122103067_MigrateDB30.Designer.cs">
+      <DependentUpon>201605122103067_MigrateDB30.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160846547_MigrateDB31.cs" />
+    <Compile Include="Migrations\201606160846547_MigrateDB31.Designer.cs">
+      <DependentUpon>201606160846547_MigrateDB31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160848451_MigrateDB32.cs" />
+    <Compile Include="Migrations\201606160848451_MigrateDB32.Designer.cs">
+      <DependentUpon>201606160848451_MigrateDB32.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160849472_MigrateDB33.cs" />
+    <Compile Include="Migrations\201606160849472_MigrateDB33.Designer.cs">
+      <DependentUpon>201606160849472_MigrateDB33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160850101_MigrateDB34.cs" />
+    <Compile Include="Migrations\201606160850101_MigrateDB34.Designer.cs">
+      <DependentUpon>201606160850101_MigrateDB34.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160850568_MigrateDB35.cs" />
+    <Compile Include="Migrations\201606160850568_MigrateDB35.Designer.cs">
+      <DependentUpon>201606160850568_MigrateDB35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160853472_MigrateDB36.cs" />
+    <Compile Include="Migrations\201606160853472_MigrateDB36.Designer.cs">
+      <DependentUpon>201606160853472_MigrateDB36.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160858253_MigrateDB37.cs" />
+    <Compile Include="Migrations\201606160858253_MigrateDB37.Designer.cs">
+      <DependentUpon>201606160858253_MigrateDB37.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160859068_MigrateDB38.cs" />
+    <Compile Include="Migrations\201606160859068_MigrateDB38.Designer.cs">
+      <DependentUpon>201606160859068_MigrateDB38.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160859475_MigrateDB39.cs" />
+    <Compile Include="Migrations\201606160859475_MigrateDB39.Designer.cs">
+      <DependentUpon>201606160859475_MigrateDB39.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160900294_MigrateDB40.cs" />
+    <Compile Include="Migrations\201606160900294_MigrateDB40.Designer.cs">
+      <DependentUpon>201606160900294_MigrateDB40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160901415_MigrateDB41.cs" />
+    <Compile Include="Migrations\201606160901415_MigrateDB41.Designer.cs">
+      <DependentUpon>201606160901415_MigrateDB41.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606171551169_MigrateDB42.cs" />
+    <Compile Include="Migrations\201606171551169_MigrateDB42.Designer.cs">
+      <DependentUpon>201606171551169_MigrateDB42.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606201612502_MigrateDB43.cs" />
+    <Compile Include="Migrations\201606201612502_MigrateDB43.Designer.cs">
+      <DependentUpon>201606201612502_MigrateDB43.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606201615348_MigrateDB44.cs" />
+    <Compile Include="Migrations\201606201615348_MigrateDB44.Designer.cs">
+      <DependentUpon>201606201615348_MigrateDB44.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606201615597_MigrateDB45.cs" />
+    <Compile Include="Migrations\201606201615597_MigrateDB45.Designer.cs">
+      <DependentUpon>201606201615597_MigrateDB45.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606201616257_MigrateDB46.cs" />
+    <Compile Include="Migrations\201606201616257_MigrateDB46.Designer.cs">
+      <DependentUpon>201606201616257_MigrateDB46.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606201650405_MigrateDB47.cs" />
+    <Compile Include="Migrations\201606201650405_MigrateDB47.Designer.cs">
+      <DependentUpon>201606201650405_MigrateDB47.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606210734588_MigrateDB48.cs" />
+    <Compile Include="Migrations\201606210734588_MigrateDB48.Designer.cs">
+      <DependentUpon>201606210734588_MigrateDB48.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606220715347_MigrateDB49.cs" />
+    <Compile Include="Migrations\201606220715347_MigrateDB49.Designer.cs">
+      <DependentUpon>201606220715347_MigrateDB49.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606220717224_MigrateDB50.cs" />
+    <Compile Include="Migrations\201606220717224_MigrateDB50.Designer.cs">
+      <DependentUpon>201606220717224_MigrateDB50.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606290907040_MigrateDB51.cs" />
+    <Compile Include="Migrations\201606290907040_MigrateDB51.Designer.cs">
+      <DependentUpon>201606290907040_MigrateDB51.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606290907571_MigrateDB52.cs" />
+    <Compile Include="Migrations\201606290907571_MigrateDB52.Designer.cs">
+      <DependentUpon>201606290907571_MigrateDB52.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\UserContext.cs" />
+    <Compile Include="Models\MyСonverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CustomMembershipProvider.cs" />
+    <Compile Include="Providers\CustomRoleProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\myEngineDb.mdf" />
+    <Content Include="App_Data\myEngineDb_log.ldf">
+      <DependentUpon>myEngineDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\Account\LoginMenu.css" />
+    <Content Include="Content\AdminPanel\AdminPanel.css" />
+    <Content Include="Content\AdminPanel\ViewDeclaration.css" />
+    <Content Include="Content\Home\popUpDialog.css" />
+    <Content Include="Content\Manage\general.css" />
+    <Content Include="Content\Manage\liked.css" />
+    <Content Include="Content\Manage\manage.css" />
+    <Content Include="Content\Section\Services-Contacts.css" />
+    <Content Include="Content\flexslider.css" />
+    <Content Include="Content\Section\History.css" />
+    <Content Include="Content\Home\declaration.css" />
+    <Content Include="Content\Section\Parters.css" />
+    <Content Include="Content\Account\Registrations.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Home\catalog.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Files\Images\kvaka.by.png" />
+    <Content Include="Global.asax" />
+    <Content Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\kvaka.pubxml" />
+    <None Include="Properties\PublishProfiles\ortxan741myEngineKvaka.pubxml" />
+    <Content Include="MyScripts\app.js" />
+    <Content Include="MyScripts\directives\directive.js" />
+    <Content Include="MyScripts\drop-image-animation.js" />
+    <Content Include="MyScripts\header-menu.js" />
+    <Content Include="MyScripts\home\catalog.js" />
+    <Content Include="MyScripts\home\declaration.js" />
+    <Content Include="MyScripts\home\index.js" />
+    <Content Include="MyScripts\layout.js" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="MyScripts\manage\liked.js" />
+    <Content Include="MyScripts\manage\manage-route.js" />
+    <Content Include="MyScripts\manage\manage.js" />
+    <Content Include="Scripts\AngularJS\angular-animate.js" />
+    <Content Include="Scripts\AngularJS\angular-animate.min.js" />
+    <Content Include="Scripts\AngularJS\angular-route.js" />
+    <Content Include="Scripts\AngularJS\angular-route.min.js" />
+    <Content Include="Scripts\AngularJS\angular.js" />
+    <Content Include="Scripts\AngularJS\angular.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\nugetexample.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdminPanel.cshtml" />
+    <Content Include="Views\AdminPanel\IndexAdmin.cshtml" />
+    <Content Include="Views\AdminPanel\ViewAllUsers.cshtml" />
+    <Content Include="Views\AdminPanel\DeleteUser.cshtml" />
+    <Content Include="Views\AdminPanel\ViewUser.cshtml" />
+    <Content Include="Views\AdminPanel\ViewAllDeclarations.cshtml" />
+    <Content Include="Views\AdminPanel\AddDeclaration.cshtml" />
+    <Content Include="Views\AdminPanel\GetItems.cshtml" />
+    <Content Include="Views\Section\Discount.cshtml" />
+    <Content Include="Views\Section\Services.cshtml" />
+    <Content Include="Views\Section\History.cshtml" />
+    <Content Include="Views\Section\Partners.cshtml" />
+    <Content Include="Views\Section\Contacts.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Catalog.cshtml" />
+    <Content Include="Views\Home\UnderMenu.cshtml" />
+    <Content Include="Views\Home\Declaration.cshtml" />
+    <Content Include="Views\AdminPanel\NewDeclaration.cshtml" />
+    <Content Include="Views\Account\LoginMenu.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\General.cshtml" />
+    <Content Include="Views\Manage\Config.cshtml" />
+    <Content Include="Views\Manage\Liked.cshtml" />
+    <Content Include="Views\Home\PopUpDialog.cshtml" />
+    <Content Include="Views\Manage\Messages.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511220850154_MigrateDB.resx">
+      <DependentUpon>201511220850154_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512031520312_MigrateDB1.resx">
+      <DependentUpon>201512031520312_MigrateDB1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512042118026_MigrateDB2.resx">
+      <DependentUpon>201512042118026_MigrateDB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512050024091_MigrateDB3.resx">
+      <DependentUpon>201512050024091_MigrateDB3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512050211521_MigrateDB4.resx">
+      <DependentUpon>201512050211521_MigrateDB4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512050215095_MigrateDB5.resx">
+      <DependentUpon>201512050215095_MigrateDB5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512050222059_MigrateDB6.resx">
+      <DependentUpon>201512050222059_MigrateDB6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512050225453_MigrateDB7.resx">
+      <DependentUpon>201512050225453_MigrateDB7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512050825503_MigrateDB8.resx">
+      <DependentUpon>201512050825503_MigrateDB8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512050841393_MigrateDB9.resx">
+      <DependentUpon>201512050841393_MigrateDB9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512051332228_MigrateDB10.resx">
+      <DependentUpon>201512051332228_MigrateDB10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603260626349_MigrateDB101.resx">
+      <DependentUpon>201603260626349_MigrateDB101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603260628150_MigrateDB102.resx">
+      <DependentUpon>201603260628150_MigrateDB102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603260929095_MigrateDB11.resx">
+      <DependentUpon>201603260929095_MigrateDB11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603260930177_MigrateDB103.resx">
+      <DependentUpon>201603260930177_MigrateDB103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603261243531_MigrateDB104.resx">
+      <DependentUpon>201603261243531_MigrateDB104.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603261245448_MigrateDB105.resx">
+      <DependentUpon>201603261245448_MigrateDB105.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603261249426_MigrateDB12.resx">
+      <DependentUpon>201603261249426_MigrateDB12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603261250023_MigrateDB13.resx">
+      <DependentUpon>201603261250023_MigrateDB13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603261303007_MigrateDB14.resx">
+      <DependentUpon>201603261303007_MigrateDB14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270728020_MigrateDB15.resx">
+      <DependentUpon>201603270728020_MigrateDB15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604011013053_MigrateDB16.resx">
+      <DependentUpon>201604011013053_MigrateDB16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604011014061_MigrateDB17.resx">
+      <DependentUpon>201604011014061_MigrateDB17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604031206578_MigrateDB18.resx">
+      <DependentUpon>201604031206578_MigrateDB18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604031209239_MigrateDB19.resx">
+      <DependentUpon>201604031209239_MigrateDB19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604031211023_MigrateDB20.resx">
+      <DependentUpon>201604031211023_MigrateDB20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604051517160_MigrateDB21.resx">
+      <DependentUpon>201604051517160_MigrateDB21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605061638512_MigrateDB22.resx">
+      <DependentUpon>201605061638512_MigrateDB22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605101212530_MigrateDB23.resx">
+      <DependentUpon>201605101212530_MigrateDB23.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605101215479_MigrateDB24.resx">
+      <DependentUpon>201605101215479_MigrateDB24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605101322165_MigrateDB25.resx">
+      <DependentUpon>201605101322165_MigrateDB25.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605121157316_MigrateDB26.resx">
+      <DependentUpon>201605121157316_MigrateDB26.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605121316577_MigrateDB27.resx">
+      <DependentUpon>201605121316577_MigrateDB27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605121318421_MigrateDB28.resx">
+      <DependentUpon>201605121318421_MigrateDB28.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605121750325_MigrateDB29.resx">
+      <DependentUpon>201605121750325_MigrateDB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605122103067_MigrateDB30.resx">
+      <DependentUpon>201605122103067_MigrateDB30.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160846547_MigrateDB31.resx">
+      <DependentUpon>201606160846547_MigrateDB31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160848451_MigrateDB32.resx">
+      <DependentUpon>201606160848451_MigrateDB32.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160849472_MigrateDB33.resx">
+      <DependentUpon>201606160849472_MigrateDB33.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160850101_MigrateDB34.resx">
+      <DependentUpon>201606160850101_MigrateDB34.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160850568_MigrateDB35.resx">
+      <DependentUpon>201606160850568_MigrateDB35.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160853472_MigrateDB36.resx">
+      <DependentUpon>201606160853472_MigrateDB36.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160858253_MigrateDB37.resx">
+      <DependentUpon>201606160858253_MigrateDB37.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160859068_MigrateDB38.resx">
+      <DependentUpon>201606160859068_MigrateDB38.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160859475_MigrateDB39.resx">
+      <DependentUpon>201606160859475_MigrateDB39.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160900294_MigrateDB40.resx">
+      <DependentUpon>201606160900294_MigrateDB40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160901415_MigrateDB41.resx">
+      <DependentUpon>201606160901415_MigrateDB41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606171551169_MigrateDB42.resx">
+      <DependentUpon>201606171551169_MigrateDB42.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606201612502_MigrateDB43.resx">
+      <DependentUpon>201606201612502_MigrateDB43.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606201615348_MigrateDB44.resx">
+      <DependentUpon>201606201615348_MigrateDB44.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606201615597_MigrateDB45.resx">
+      <DependentUpon>201606201615597_MigrateDB45.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606201616257_MigrateDB46.resx">
+      <DependentUpon>201606201616257_MigrateDB46.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606201650405_MigrateDB47.resx">
+      <DependentUpon>201606201650405_MigrateDB47.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606210734588_MigrateDB48.resx">
+      <DependentUpon>201606210734588_MigrateDB48.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220715347_MigrateDB49.resx">
+      <DependentUpon>201606220715347_MigrateDB49.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220717224_MigrateDB50.resx">
+      <DependentUpon>201606220717224_MigrateDB50.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606290907040_MigrateDB51.resx">
+      <DependentUpon>201606290907040_MigrateDB51.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606290907571_MigrateDB52.resx">
+      <DependentUpon>201606290907571_MigrateDB52.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>28324</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:28324/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

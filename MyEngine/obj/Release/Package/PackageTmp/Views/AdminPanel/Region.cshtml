@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Region";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+@using MyEngine.Models
+@model IEnumerable<Town>
+
+    <div class="add_Region">
+        <fieldset>
+            <legend>Добавление области</legend>
+            <p>Введите название региона:</p>
+            @using (Html.BeginForm("AddRegion","AdminPanel",FormMethod.Post))
+            {
+             @Html.TextBox("Name")
+                <br /><br/>
+                <input type="submit" value="создать">
+            }
+        </fieldset>
+    </div>
+
+    <div class="add_City">
+        <fieldset>
+            <legend>Добавление города</legend>
+            @using (Html.BeginForm("AddCity", "AdminPanel", FormMethod.Post))
+            {
+                <p>Выберите область</p>
+                @Html.DropDownList("RegionId", ViewBag.SelectRegions as SelectList)
+                <br />
+              <p>Введите название города</p>  
+              @Html.TextBox("Name");
+               <br /><br />
+                <input type="submit" value="создать">
+            }
+        </fieldset>
+    </div>
+
+
+<h3>Области</h3>
+<table class="tb_region">
+       <thead>
+           <tr>
+               <th>Id</th>
+               <th>Название региона</th>
+               <th>Действия</th>
+           </tr>
+       </thead>
+   @foreach (var reg in ViewBag.Regions)
+   {
+   <tr>
+       <td>@reg.Id</td>
+       <td>@reg.Name</td>
+       <td>удалить | редактировать</td>
+   </tr>
+   }
+</table>
+
+
+<table>
+ <thead>
+
+ </thead>
+</table>
+
+
+<h3>Города</h3>
+<table class="tb_city">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Название города</th>
+            <th>Область города</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+       @foreach (Town city in Model)
+       {
+        <tr>
+            <td>@city.Id</td>
+            <td>@city.Name</td>
+            <td>@city.Region.Name</td>
+            <td>редакт. | удал.</td>
+        </tr>
+       }
+</table>

@@ -1,0 +1,26 @@
+﻿@model MyEngine.Models.Category
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2 style="text-align:center">Создание новой категории</h2>
+@using (Html.BeginForm())
+{
+    <fieldset style="width:260px; font-size:17px; background-color:#f3f3f3; border:1px solid #bebebe;">
+        <legend>Заполните форму</legend>
+      
+        <p>Введите название категории</p>
+        @Html.EditorFor(m => m.Name)
+        <br /><br />
+        <p>Выберите рубрику</p>
+        @Html.DropDownListFor(model=>model.SectionId, ViewBag.Sections as SelectList)
+        <br /><br />
+        <input type="submit" value="Добавить">
+        <br />
+    </fieldset>
+    <br />
+    
+   
+}

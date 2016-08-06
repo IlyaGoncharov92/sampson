@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Manage.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+    <div class="header">
+        <div class="header_content">
+            @Html.Partial("_LoginPartial")
+            <div style="text-align:right">@Html.ActionLink("Подать объявление", "AddDeclaration")</div>
+        </div>
+    </div><!--end .header-->
+
+
+
+    <div class="container">
+        <div class="header_bottom">
+
+        </div>
+
+        <div class="sidebar1">
+
+            <div class="sidebar1_content">
+
+            </div>
+
+        </div><!--end .sidebar1-->
+
+
+        <div class="content">
+            @RenderBody()
+            <!--end .content-->
+        </div>
+
+       
+
+        <!-- end .container -->
+    </div>
+
+
+
+</body>
+</html>

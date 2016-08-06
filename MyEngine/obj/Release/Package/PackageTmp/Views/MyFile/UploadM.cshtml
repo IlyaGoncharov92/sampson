@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "UploadM";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2>UploadM</h2>
+@using (Html.BeginForm("UploadM", "MyFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="upload" /><br>
+    <input type="submit" value="Загрузить">
+}

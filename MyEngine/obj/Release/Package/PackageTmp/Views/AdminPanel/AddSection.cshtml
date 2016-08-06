@@ -1,0 +1,17 @@
+﻿@model MyEngine.Models.Section
+
+@{
+    ViewBag.Title = "AddSection";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2 style="text-align:center">Добавление рубрики</h2>
+
+<fieldset style="width:400px;">
+    <legend>Введите название рубрики</legend>
+    @using (Html.BeginForm())
+    {
+        @Html.EditorFor(m=>m.Name)
+        <input type="submit" value="Добавить">
+    }
+</fieldset>

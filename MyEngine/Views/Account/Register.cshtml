@@ -1,0 +1,32 @@
+﻿@model MyEngine.Models.RegisterModel
+
+<div class="login_contaitner">
+    <div class="login_content">
+        <p>Регистрация</p>
+        @using (Ajax.BeginForm("Register", new AjaxOptions
+        {
+            HttpMethod = "POST"
+        }))
+        {
+            <div class="entry_type_content">
+                <div class="entry_register">
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.Email, new { placeholder = "Введите Email", type = "email" })
+                    </div>
+                    <div class="editor-field">
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "Введите пароль" })
+                    </div>
+                    <div class="editor-field">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Подтвердите пароль" })<br />
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Зарегестрировать" />
+
+            <div class="reg_error">
+                @Html.ValidationSummary(false)
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@using MyEngine.Models
+@model IEnumerable<Image>
+@{
+    ViewBag.Title = "ViewCurrentDeclaration";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+
+
+@foreach (Image img in Model)
+{
+    if (img.DeclarationId == ViewBag.Declaration.Id)
+    {
+        <a href="~/Files/@img.ImagePath"><img width="227" height="170" src="~/Files/@img.ImagePath"></a>
+    }
+}
+<br /><br />
+<fieldset style="width:1000px;">
+    <legend>Объявление</legend>
+    <table>
+        <tr>
+            <td><h3>Заголовок объявления:</h3></td>
+            <td>@ViewBag.Declaration.Title</td>
+        </tr>
+        <tr>
+            <td><h3>Описание объявления:</h3></td>
+            <td>@ViewBag.Declaration.Description</td>
+        </tr>
+        <tr>
+        <td><h3>Дата размещения:</h3></td>
+         <td>@ViewBag.Declaration.PublicDate</td>
+        </tr>
+    </table>
+</fieldset>
+
+

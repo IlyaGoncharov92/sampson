@@ -1,0 +1,25 @@
+﻿@model MyEngine.Models.Category
+
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h3 style="text-align:center">Редактирование категорий</h3>
+
+<fieldset style="width:500px;">
+    <legend>Редактирование Категории: -------- @Model.Name -------</legend>
+    <br />
+    @using(Html.BeginForm()){
+
+        @Html.LabelFor(m=>m.Name)
+        <br /><br />
+         @Html.EditorFor(m=>m.Name)
+    
+         <p>Выберите рубрику</p>
+        @Html.DropDownListFor(s=>s.SectionId, ViewBag.Sections as SelectList)
+        <br /><br />
+        <input type="submit" value="Редактировать">
+    }
+   
+</fieldset>

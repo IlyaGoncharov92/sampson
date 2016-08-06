@@ -1,0 +1,35 @@
+﻿@model MyEngine.Models.LoginModel
+
+<div class="login_contaitner">
+    <div class="login_content">
+        <p>Вход</p>
+        @using (Ajax.BeginForm("Login", new AjaxOptions
+        {
+            HttpMethod = "POST"
+        }))
+        {
+            <div class="entry_type_content">
+                <div class="entry_login">
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.Email, new { placeholder = "Введите Email", type = "email" })
+                    </div>
+                    <div class="editor-field">
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "Введите пароль" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="check-field">
+                @Html.EditorFor(m => m.RememberMe)
+                <label>Запомнить меня</label>
+                @Html.ValidationMessageFor(m => m.RememberMe)
+            </div>
+
+            <input type="submit" value="Войти">
+
+            <button ng-click="clickLoadRegister()" onclick="return false">Регистрация</button>
+
+            @Html.ValidationSummary(true)
+        }
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@using MyEngine.Models
+@model IEnumerable<Declaration>
+@{
+    ViewBag.Title = "RequestModerator";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h2>RequestModerator</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Заголовок</th>
+            <th>Описание</th>
+            <th>Дата Размещения</th>
+            <th>Пользователь</th>
+            <th>Телефон</th>
+            <th>Категория</th>
+            <th>Город</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    @foreach (Declaration dec in Model)
+    {
+        <tr>
+            <td>@dec.Id</td>
+            <td>@dec.Title</td>
+            <td>@dec.Description</td>
+            <td>@dec.PublicDate</td>
+            <td>@dec.User.Email</td>
+            <td>@dec.PhoneNumber</td>
+            <td>@dec.Category.Name</td>
+            <td>@dec.Town.Name</td>
+            <td>@dec.StratusDeclaration.Name</td>
+            <td>ред. | @Html.ActionLink("одобрить", "Approve", new { id=dec.Id}) | отклонить | удалить</td>
+        </tr>
+    }
+</table>

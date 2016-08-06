@@ -1,0 +1,31 @@
+﻿@using MyEngine.Models
+@model User
+@{
+    ViewBag.Title = "Удаление пользователя";
+    Layout = "~/Views/Shared/_LayoutAdminPage1.cshtml";
+}
+
+<h3 style="text-align:center">Удаление пользователя</h3>
+<fieldset>
+    <legend>Проверте данные</legend>
+
+    @Html.LabelFor(model => model.Id) :
+    @Html.DisplayFor(m => m.Id)
+    <br />
+    @Html.LabelFor(model=>model.Email) :
+    @Html.DisplayFor(m=>m.Email)
+    <br />
+    @Html.LabelFor(model=>model.Password) :
+    @Html.DisplayFor(m=>m.Password)
+    <br />
+    @Html.LabelFor(model=>model.CreationDate) :
+    @Html.DisplayFor(m=>m.CreationDate)
+    <br /><br />
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="подтвердить удаление">
+    }
+</fieldset>
+
+
+

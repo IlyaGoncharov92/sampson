@@ -1,0 +1,116 @@
+﻿@using MyEngine.Models
+@model Declaration
+
+@{
+    ViewBag.Title = "AddDeclaration";
+    Layout = "~/Views/Shared/_LayoutAdminPanel.cshtml";
+}
+
+<style>
+    .class_beginForm {
+        margin-left: 77px;
+    }
+</style>
+
+<h2 style="text-align:center">Добавление объявы</h2>
+
+@using (Html.BeginForm("AddDeclaration", "AdminPanel", FormMethod.Post, new { enctype = "multipart/form-data", @class = "class_beginForm" }))
+{
+    <input type="file" name="uploads">
+    <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+    <br /><br />
+
+    <h4 class="select_name">Рубрика</h4>
+    @Html.DropDownList("Section", ViewBag.Sections as SelectList, new { id = "section" })
+
+    <h4 class="select_name">Категория</h4>
+    @Html.DropDownList("CategoryId", ViewBag.Categories as SelectList, new { id = "category" })
+    @Html.ValidationMessageFor(c => c.CategoryId)
+
+    <br /><br />
+    @Html.LabelFor(m => m.Title)
+    <br />
+    @Html.EditorFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Name)
+    <br />
+    @Html.EditorFor(m => m.Name)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Description)
+    <br />
+    @Html.EditorFor(m => m.Description)
+    <br /><br />
+
+    @Html.LabelFor(m => m.ExtraDescription)
+    <br />
+    @Html.TextAreaFor(m => m.ExtraDescription, 5, 22, null)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Color)
+    <br />
+    @Html.EditorFor(m => m.Color)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Сonsist)
+    <br />
+    @Html.EditorFor(m => m.Сonsist)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Article)
+    <br />
+    @Html.EditorFor(m => m.Article)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Size)
+    <br />
+    @Html.EditorFor(m => m.Size)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Coast)
+    <br />
+    @Html.EditorFor(m => m.Coast)
+
+    @Html.Hidden("DeclarationType", @ViewBag.declarationType as string)
+    <br /><br />
+    <input name="parentId" type="text" value="@ViewBag.parentId" hidden />
+
+    <input type="submit" value="Добавить объявление">
+    <br /><br />
+}
+
+<script>
+    var selectBlock = '@ViewBag.selectBlock'
+
+    if (selectBlock == 'block') {
+        var selectTag = document.getElementsByTagName('select');
+
+        $('.select_name').hide();
+
+        for (var i = 0; i < selectTag.length; i++)
+            selectTag[i].style.visibility = 'hidden';
+    }
+
+    $(function () {
+        $('#section').change(function () {
+            // получаем выбранный id
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItems")/' + id,
+                success: function (data) {
+                    // заменяем содержимое присланным частичным представлением
+                    $('#category').replaceWith(data);
+                }
+            });
+        });
+    })
+</script>

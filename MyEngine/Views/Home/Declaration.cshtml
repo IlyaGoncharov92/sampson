@@ -1,0 +1,67 @@
+﻿<link href="~/Content/Home/declaration.css" rel="stylesheet" />
+
+<div class="content_inform">
+    <div class="сontent_description">
+        <div class="slider_inform">
+            <div class="img_spis">
+                <ul ng-cloak>
+                    <li ng-repeat="imagePath in imagePaths">
+                        <img ng-class="$index == 0 ? 'active_d' : 'inactive_d'"
+                             ng-src="~/Files/{{imagePath.ImagePath}}"
+                             ng-mouseenter="loadPhoto(imagePath, $index)" ng-load="imgLoad()" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="сontent_left">
+            <div class="content_photo">
+                <div class="content_photos">
+                    <img data-index="{{index}}" ng-src="~/Files/{{imgGeneral}}" />
+                </div>
+            </div>
+        </div>
+        <div class="content_detail">
+            <div class="detail_name" ng-cloak>{{declaration.Name}}</div>
+            <div class="detail_price" ng-bind="declaration.Coast != null ? (declaration.Coast | number) + ' р.' : '' "></div>
+            <div class="detail_description" ng-cloak>Модель: {{declaration.Description}}</div>
+            <div class="detail_articl" ng-cloak>Артикул: {{declaration.Article}}</div>
+            <div class="detail_color" ng-cloak>Цвет: {{declaration.Color}}</div>
+            <div class="color_selection">
+                <p>Выберите цвет:</p>
+                <div>
+                    <ul>
+                        <li ng-repeat="imageChildPath in imageChildPaths | filter: {ImageType: 0}">
+                            <img ng-class="$index == 0 ? 'active_d' : 'inactive_d'"
+                                 ng-src="~/Files/{{imageChildPath.ImagePath}}"
+                                 ng-click="loadNewContent(imageChildPath.DeclarationId, $index)" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="detail_size" ng-cloak>Размер: {{declaration.Size}}</div>
+            <div class="detail_composition" ng-cloak>Состав: {{declaration.Consist}}</div>
+            <div class="detail_extra" ng-cloak>Описание: {{declaration.ExtraDescription}}</div>
+        </div>
+    </div>
+
+    <div class="carousel">
+        <h4>Похожие товары</h4>
+        <div class="silde_back" ng-click="slideMove('back')"></div>
+        <div class="carousel_container">
+            <div class="carousel_content">
+                <div ng-repeat="declaration in slideDeclarations" class="carousel_item">
+                    <div class="carousel_image">
+                        <a href="/home/declaration/{{declaration.Id}}">
+                            <img ng-src="/Files/{{declaration.ImagePath}}" />
+                        </a>
+                    </div>
+                    <div class="carousel_detail">
+                        <span class="slide_title" ng-bind="declaration.Title"></span>
+                        <span class="slide_price" ng-bind="declaration.Coast != null ? (declaration.Coast | number) + ' р.' : '' "></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="silde_next" ng-click="slideMove('next')"></div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/AdminPanel.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+   
+    <header>
+
+    </header>
+       
+    <div class="sidebar">
+      
+           <ul class="nav">
+               <li> @Html.ActionLink("Все пользователи","ViewAllUsers","AdminPanel")</li>
+               <li> @Html.ActionLink("одобренные объявления", "ViewAllDeclarations","AdminPanel")</li>
+               <li>@Html.ActionLink("Категории", "ViewAllCategories","AdminPanel")</li>
+               <li>@Html.ActionLink("Рубрики","ViewAllSections","AdminPanel")</li>
+               <li>@Html.ActionLink("Все файлы","ViewFile","MyFile")</li>
+               <li> @Html.ActionLink("Регионы и города", "Region", "AdminPanel")</li>
+               <li>@Html.ActionLink("Заявки","RequestModerator","AdminPanel")</li>
+           </ul>
+         
+    </div>
+
+    <div class="content">
+
+        <div class="content_context">
+            
+            @RenderBody()
+
+
+        </div>
+
+    </div>
+    
+           
+       
+    
+</body>
+</html>
+

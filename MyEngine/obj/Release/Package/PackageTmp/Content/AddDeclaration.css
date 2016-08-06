@@ -1,0 +1,149 @@
+﻿html {
+    height:100%;
+}
+body {
+    
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+    font-size:15px;
+    height:100%;
+    background-color:#fafafa;
+    font-size:13px;
+}
+
+.header {
+     border-bottom:1px solid #3dc200;
+  background-color:#ffffff;
+    width:100%;
+    position:fixed;
+    top:0;
+    height:60px;
+    z-index:1;
+}
+
+
+.header_content {
+   
+   
+   width: 80%;
+   height:90px;
+   min-width:1200px;
+   max-width:1300px;
+   margin: 0 auto;/*центрирует container в совокупности с шириной экрана*/
+}
+.container {
+    width:80%;
+   /*border:1px solid #ea2424; */
+    height:100%;
+   position:relative;
+   top:50px;
+    height:600px;
+    min-width:1200px;
+    max-width:1300px;
+    margin: 0 auto;/*центрирует container в совокупности с шириной экрана*/
+}
+
+ .header_bottom {
+    height:40px;
+    border:1px solid #a3a5f2;
+     border:1px solid #3dc200;
+     background-color:#fdffe7;
+}
+
+
+.content {
+    width:100%;
+   word-break:break-all; /*Переносит текст на следуюющую строку если он упирается в край блока*/
+    margin-bottom:50px;
+    float:left;
+    /*border: 1px solid #c7c7c7;*/
+}
+
+/*---------------------------------------------------*/
+
+
+fieldset {
+    border:1px solid #bec8f2;
+    width:98.3%;
+    margin: 0 auto;/*центрирует container в совокупности с шириной экрана*/
+    
+}
+    fieldset legend {
+        text-align:center;
+        color:#2d3acc;
+    }
+
+.declarations {
+    
+    width:100%;
+    border-spacing: 0 13px;
+}
+
+tr {
+    
+    
+}
+td {
+    border:1px   dashed #69719d ;
+    height:120px;
+   background-color:#ffffff;
+}
+
+
+/*Контейнеры для объявлений на главной странице*/
+
+.container_forDeclaration {
+    height:100%;
+    width:100%;
+    
+    
+}
+
+.photo {
+border:1px  solid #aaaaaa;
+height:98%;
+width:20%;
+background-color: #e4e4e4;
+}
+
+.container_title {
+    margin:0px 0px 0px 15px;
+    display:inline-block;
+    height:20px;
+    width:100%;
+    
+    background-color:#f8f8f8;
+    bottom:217px;
+     left:27%;
+      
+      
+}
+
+.main_declaration_content {
+    position:relative;
+    left:20.4%;
+    bottom:-40px;
+   height:100%;
+   width:70%;
+   bottom:120px;
+  
+}
+
+.data {
+    display:inline-block;
+    border:1px solid #3dc200;
+    background-color:#a9ef9b;
+    bottom:50px;
+}
+
+/*Поля для подачи объявления*/
+input, textarea {
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    color: #333;
+    font-size: 1.2em;
+    margin: 5px 0 6px 0;
+    padding: 5px;
+    width: 400px;
+}

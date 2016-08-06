@@ -1,0 +1,306 @@
+﻿.discount {
+    width: 100%;
+}
+
+    .discount img {
+        display: block;
+        width: 60%;
+        height: 450px;
+        margin: 0 auto;
+    }
+
+.discountt img {
+    width: 100%;
+    height: 300px;
+}
+
+.container-contacts {
+    width: 100%;
+    height: 1500px;
+    box-shadow: 0 0 30px #ffffff;
+    /*background-color: #ffffff;*/
+    /*background: url(/Files/paper.png);*/
+    min-height: 600px;
+    margin: 0 auto;
+    border-radius: 15px;
+    color: black;
+}
+
+.container-contacts2 {
+    margin-top: 30px;
+}
+
+/*.data-contakt {
+    margin-left: 1%;
+    width: 35%;
+    height: 400px;
+}*/
+
+.data-contak {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin-top: 15px;
+    margin: auto;
+}
+
+    .data-contak img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+.textcontent {
+    font-size: 18px;
+    font-family: "PT Sans", Arial;
+    text-transform: capitalize;
+    text-shadow: 0 1px 0 #eee, 0px 1px 6px #000;
+}
+
+.textcontentbig {
+    font-size: 1.5em;
+    font-family: "PT Sans", Arial;
+    font-size: 18px;
+    color: black;
+}
+
+.ggghhh {
+    width: 90%;
+    height: 1000px;
+    margin: auto;
+}
+
+.zagolovok {
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.text-big {
+    font-weight: bolder;
+    text-indent: 30px;
+    font-size: 20px;
+}
+
+.text-prosto {
+    text-indent: 30px;
+}
+
+.text-podcherk {
+    text-indent: 30px;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.roty {
+    font-weight: bolder;
+}
+
+.ulr_big {
+    font-weight: bolder;
+}
+
+.zagolovok_dic {
+    text-align: center;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+/*========================== Обратная сввязь ================================*/
+
+
+/*========================== Контакты ================================*/
+
+.button {
+    display: block;
+    margin-left: 180px;
+    margin-bottom: 20px;
+    width: 105px;
+    height: 105px;
+    background: url(/Files/Images.png);
+    cursor: pointer;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    box-shadow: 0 3px 20px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.6), 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 3px 20px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.6), 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 3px 20px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.6), 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+}
+
+
+    .button:hover {
+        background: rgb(167,91,41);
+        box-shadow: inset 0 0 20px rgba(0,0,0,.2), 0 2px 0 rgba(255,255,255,.4),inset 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+        -moz-box-shadow: inset 0 0 20px rgba(0,0,0,.2), 0 2px 0 rgba(255,255,255,.4),inset 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+        -webkit-box-shadow: inset 0 0 20px rgba(0,0,0,.2), 0 2px 0 rgba(255,255,255,.4),inset 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+    }
+
+    .button::after {
+        content: '';
+        width: 105px;
+        height: 105px;
+        display: block;
+        /*opacity: .65;*/
+    }
+
+    .button:hover::after {
+        background-position: center 52%;
+    }
+
+.btn-photo::after {
+    background: url(/Files/Images/Section/park3.png) center no-repeat;
+    background-size: 100px 95px;
+}
+
+.btn-settings::after {
+    background: url(/Files/Images/Section/phone2.png) center no-repeat;
+    background-size: 100px 100px;
+}
+
+.btn-tag::after {
+    background: url(/Files/Images/Section/kontack.png) center no-repeat;
+    background-size: 90px 90px;
+}
+
+.btn_time::after {
+    background: url(/Files/Images/Section/clock2.png) center no-repeat;
+    background-size: 100px 100px;
+}
+
+.btn-dir::after {
+    background: url(/Files/Images/Section/11dir.png) center no-repeat;
+    background-size: 100px 100px;
+}
+
+.btn-com::after {
+    background: url(/Files/Images/Section/com11.png) center no-repeat;
+    background-size: 95px 95px;
+}
+
+.btn-work::after {
+    background: url(/Files/Images/Section/11work.png) center no-repeat;
+    background-size: 100px 100px;
+}
+
+.textcontentbig1 {
+    font-weight: bold;
+    margin-left: 16px;
+    font-size: 1.5em;
+    font-family: "PT Sans", Arial;
+    font-size: 15px;
+}
+
+.text-big_1 {
+    font-weight: bolder;
+    text-indent: 30px;
+    font-size: 16px;
+}
+
+.contakt_cont1 {
+    float: right;
+    width: 68%;
+    height: 105px;
+    box-shadow: 0 0 30px #ffffff;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .contakt_cont1:hover {
+        background: #c8c4c4;
+    }
+
+.contakt_cont2 {
+    margin-left: 10px;
+    float: right;
+    width: 68%;
+    height: 100px;
+    box-shadow: 0 0 30px #ffffff;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .contakt_cont2:hover {
+        background: #c8c4c4;
+    }
+
+.contakt_cont3 {
+    float: right;
+    width: 68%;
+    height: 100px;
+    box-shadow: 0 0 30px #ffffff;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .contakt_cont3:hover {
+        background: #c8c4c4;
+    }
+
+.contakt_cont4 {
+    float: right;
+    width: 68%;
+    height: 100px;
+    box-shadow: 0 0 30px #ffffff;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .contakt_cont4:hover {
+        background: #c8c4c4;
+    }
+
+.contakt_cont5 {
+    float: right;
+    width: 68%;
+    height: 100px;
+    box-shadow: 0 0 30px #ffffff;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .contakt_cont5:hover {
+        background: #c8c4c4;
+    }
+
+.contakt_cont6 {
+    float: right;
+    width: 68%;
+    height: 100px;
+    box-shadow: 0 0 30px #ffffff;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .contakt_cont6:hover {
+        background: #c8c4c4;
+    }
+
+.contakt_cont7 {
+    float: right;
+    width: 68%;
+    height: 100px;
+    box-shadow: 0 0 30px #ffffff;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .contakt_cont7:hover {
+        background: #c8c4c4;
+    }
+
+
+.Contakt_file {
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 0 30px #ffffff;
+    font-weight: bold;
+    text-align: center;
+    font-family: "PT Sans", Arial;
+    font-size: 24px;
+}
+
+.data_directory {
+    /*не трогать этот пустой,но в тоже время нужный контейнер*/
+}

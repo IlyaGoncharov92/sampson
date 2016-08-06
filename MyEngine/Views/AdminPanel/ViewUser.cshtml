@@ -1,0 +1,62 @@
+﻿@using MyEngine.Models
+@model User
+@{
+    ViewBag.Title = "Данные пользователя";
+    Layout = "~/Views/Shared/_LayoutAdminPanel.cshtml";
+}
+
+<fieldset>
+    <legend>Данные пользователя</legend>
+
+    <br />
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Пароль</th>
+                <th>Дата регистрации</th>
+                <th>Роль</th>
+                <th>Кол-во Объявлений</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Email</td>
+            <td>@Model.Password</td>
+            <td>@Model.CreationDate</td>
+            <td>@Model.RoleId</td>
+            <td>@Model.Declarations.Count()</td>
+        </tr>
+    </table>
+
+</fieldset>
+
+
+<br />
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Заголовок</th>
+            <th>Описание</th>
+            <th>Номер телефона</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    @foreach (Declaration declaration in Model.Declarations)
+    {
+        <tr>
+            <td>@declaration.Id</td>
+            <td>@declaration.Title</td>
+            <td>@declaration.Description</td>
+            <td>@declaration.PhoneNumber</td>
+            <td>
+                @Html.ActionLink("Просм", "ViewDeclaration", new { id=declaration.Id}) |
+                @Html.ActionLink("Ред", "EditDeclaration", new { id=declaration.Id}) |
+                @Html.ActionLink("Удал", "DeleteDeclaration", new { id=declaration.Id})
+            </td>
+        </tr>
+    }
+</table>

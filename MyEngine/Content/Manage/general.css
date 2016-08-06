@@ -1,0 +1,109 @@
+﻿
+.mContent_declarationss {
+    word-break: break-all;
+    width: 83%;
+    min-height: 437px;
+    float: right;
+    text-align: justify;
+    margin-bottom: -1.25em;
+}
+
+.widget {
+    width: 279px;
+    height: auto;
+    display: inline-block;
+    padding: 13px 47px 10px 82px;
+    margin: 0 0 20px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    text-align: left;
+    position: relative;
+    vertical-align: top;
+}
+
+.widget:hover {
+    border: 1px solid thistle;
+    background-color:lavender;
+}
+
+.widget:before {
+    width: 25px;
+    height: 33px;
+    position: absolute;
+    content: "";
+    top: 20px;
+    left: 19px;
+    background: url("/Files/Images/lk.png") no-repeat 0 0;
+}
+
+.orders-widget:before {
+    width: 38px;
+    height: 38px;
+    background-position: -256px -18px;
+}
+
+.delivery-widget:before {
+    width: 39px;
+    height: 31px;
+    background-position: -143px -16px;
+}
+
+.poned-widget:before {
+    width: 38px;
+    height: 38px;
+    background-position: -22px -15px;
+}
+
+.discount-widget:before {
+    width: 38px;
+    height: 34px;
+    background-position: -84px -14px;
+}
+
+.history-widget:before {
+    width: 39px;
+    height: 39px;
+    background-position: -205px -17px;
+}
+
+.wallet-widget:before {
+    width: 33px;
+    height: 39px;
+    background-position: -363px -17px;
+}
+
+.details-widget:before {
+    width: 38px;
+    height: 36px;
+    background-position: -304px -21px;
+}
+
+.account-page p {
+    font-size: 13px;
+    color: #272727;
+    margin-bottom: 41px;
+}
+
+.widget p {
+    margin: 7px 0 0;
+    line-height: 18px;
+    list-style: none;
+    word-break: normal;
+}
+
+.widget ul {
+    margin: 7px 0 0;
+    line-height: 18px;
+    list-style: none;
+}
+
+.widget h2 {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+    color: #551f7a;
+    margin: 0;
+}
+
+
+

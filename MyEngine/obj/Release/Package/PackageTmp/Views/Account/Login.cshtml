@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        @model MyEngine.Models.LoginModel
+        <br />
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Введите логин и пароль</legend>
+
+                @Html.LabelFor(m => m.Email)
+                <br />
+                @Html.EditorFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+                <br /><br />
+                @Html.LabelFor(m => m.Password)
+                <br />
+                @Html.EditorFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+                <br /><br />
+                @Html.LabelFor(m => m.RememberMe)
+                <br />
+                @Html.EditorFor(m => m.RememberMe)
+                @Html.ValidationMessageFor(m => m.RememberMe)
+                <br /><br />
+                <input type="submit" value="Войти">
+            </fieldset>
+        }
+    </div>
+</body>
+</html>

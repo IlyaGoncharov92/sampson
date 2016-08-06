@@ -1,0 +1,37 @@
+﻿
+<div class="popup_office">
+    <div class="popup_office_user">
+        <i class="office_user_icon"></i>
+        @User.Identity.Name
+    </div>
+    <div class="popup_office_nav">
+        @if (User.IsInRole("admin"))
+        {
+            <a href="/AdminPanel/IndexAdmin" onclick="location.reload();">
+                <i class="office_admin_icon"></i>
+                Админ панель
+            </a>
+        }
+        <a href="/manage/general">
+            <i class="office_home_icon"></i>
+            Личный кабинет
+        </a>
+        <a href="/manage/messages">
+            <i class="office_messages_icon"></i>
+            Мои сообщения
+        </a>
+        <a href="/manage/liked">
+            <i class="office_liked_icon"></i>
+            Избранное
+        </a>
+        <a href="/manage/config">
+            <i class="office_settings_icon"></i>
+            Настройки
+        </a>
+    </div>
+    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <a class="popup_exit" href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
+    }
+</div>

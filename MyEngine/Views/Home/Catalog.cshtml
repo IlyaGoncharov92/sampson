@@ -1,0 +1,69 @@
+﻿<link href="~/Content/Home/catalog.css?2" rel="stylesheet" />
+<script src="~/MyScripts/drop-image-animation.js" defer></script>
+
+<div ng-hide="declarations" class="declaration_gif">
+    <img src="/Files/Images/Gif/gif.gif" />
+</div>
+
+<div class="footer_content">
+    <div id="foot_content_id">
+        <div class="sorting">
+            <div class="sorting-two">
+                Сортировать по:
+                <a>Цена</a>
+                <a>Новое</a>
+                <a>Скидка</a>
+                <a>Популярное</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="table">
+                <div ng-repeat="declaration in declarations | filter: {Title: query}" class="container_forDeclaration"
+                     onmouseover="mouseOver(this)" onmouseout="mouseLeave(this)">
+                    <div class="drop_container">
+                        <ul ng-cloak>
+                            <li ng-repeat="imagePath in imagePaths | filter: {$: declaration.Id}">
+                                <img ng-class="$index == 0 ? 'active_c' : 'inactive_c'"
+                                     img-drop-mouseenter="declaration.Id, $index"
+                                     ng-src="~/Files/{{imagePath.ImagePath}}" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container_photo">
+                        <div ng-repeat="imagePath in imagePaths | filter: {$: declaration.Id, ImageType: 0}"
+                             class="photo" data-id-declaration="{{declaration.Id}}">
+                            <div class="loupe_image" ng-click="popUpDialogLoad(imagePath)" loupe-mouseevent>
+                                <img src="/Files/Images/loupe.png" />
+                            </div>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <a ng-class="declaration.Liked == 'true' ? 'image_liked_true' : 'image_liked_false'"
+                                   ng-click="likedClick(declaration, $parent.$index)"
+                                   id="image_liked"
+                                   title="Добавить в избранное"></a>
+                            }
+                            else
+                            {
+                                <a class="image_liked_false"
+                                   id="image_liked"
+                                   title="Добавить в избранное"></a>
+                            }
+
+                            <a href="/home/declaration/{{declaration.Id}}">
+                                <img id="{{declaration.Id}}" ng-src="/Files/{{imagePath.ImagePath}}" alt="No">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="main_declaration_content">
+                        <div class="container_title">
+                            <a href="/home/declaration/{{declaration.Id}}" ng-bind="declaration.Title"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pop-up-dialog></pop-up-dialog>

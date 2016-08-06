@@ -1,0 +1,119 @@
+﻿@using MyEngine.Models
+@model Declaration
+@{
+    ViewBag.Title = "AddDeclaration";
+    Layout = "~/Views/Shared/_LayoutAddDEclaration.cshtml";
+}
+<br />
+<fieldset>
+    <legend>Размещение объявления</legend>
+   
+
+
+
+    @using (Html.BeginForm("AddDeclaration", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        
+       <input type="file" name="uploads">
+        <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+    <input type="file" name="uploads">
+    <br /><br />
+
+   
+       <h4>Область</h4>
+       @Html.DropDownList("Region", ViewBag.Regions as SelectList, new { id="region"})
+       <h4>Город</h4>
+       @Html.DropDownList("TownId", ViewBag.Towns as SelectList, new { id="town"})
+       @Html.ValidationMessageFor(t=>t.TownId)
+  
+
+        <br /><br /><br />
+    <h4>Рубрика</h4>
+    @Html.DropDownList("Section", ViewBag.Sections as SelectList, new { id = "section" })
+
+    <h4>Категория</h4>
+    @Html.DropDownList("CategoryId", ViewBag.Categories as SelectList, new { id = "category" })
+    @Html.ValidationMessageFor(c => c.CategoryId)
+
+    <br /><br /><br />
+        /*@Html.DropDownListFor(c => c.CategoryId, ViewBag.Categories as SelectList, "Выберите категорию")
+    @Html.ValidationMessageFor(c=>c.CategoryId) */
+  
+
+       @Html.LabelFor(m => m.Title)
+        <br />
+       @Html.EditorFor(m => m.Title)
+        @Html.ValidationMessageFor(m=>m.Title)
+        <br /><br />
+     @Html.LabelFor(m => m.Description)
+    <br />
+      @Html.EditorFor(m => m.Description)
+        @Html.ValidationMessageFor(m=>m.Description)
+        <br /><br />
+        
+        @Html.LabelFor(m=>m.Coast)
+        <br />
+        @Html.EditorFor(m=>m.Coast)
+        @Html.ValidationMessageFor(m=>m.Coast)
+        <br /><br />
+        @Html.LabelFor(m => m.PhoneNumber)
+    <br />
+        @Html.EditorFor(m => m.PhoneNumber)
+        @Html.ValidationMessageFor(m=>m.PhoneNumber)
+    <br /><br />
+      @Html.LabelFor(m=>m.Name)
+        <br />
+      @Html.EditorFor(m=>m.Name)
+      @Html.ValidationMessageFor(m=>m.Name)
+    <br /><br />
+
+        <input type="submit" value="Добавить объявление">
+    }
+    
+</fieldset>
+   <script type="text/javascript">
+    $(function () {
+
+        $('#section').change(function () {
+            // получаем выбранный id
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItems")/' + id,
+                success: function (data) {
+
+                    // заменяем содержимое присланным частичным представлением
+                    $('#category').replaceWith(data);
+                }
+            });
+        });
+    })
+</script>
+
+<!--Скрипт для выбора городов из выпадающего списка-->
+<script type="text/javascript">
+    $(function () {
+
+        $('#region').change(function () {
+            // получаем выбранный id
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItemsForTown")/' + id,
+                success: function (data) {
+
+                    // заменяем содержимое присланным частичным представлением
+                    $('#town').replaceWith(data);
+                }
+            });
+        });
+    })
+</script>

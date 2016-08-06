@@ -1,0 +1,233 @@
+﻿html {
+    height:100%;
+}
+body {
+    
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+    
+    height:100%;
+    background-color:#fafafa;
+    font-size:13px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color:#2529dd;
+}
+
+.header {
+     border-bottom:1px solid #3dc200;
+  background-color:#dfffbf;
+    width:100%;
+    position:fixed;
+    top:0;
+    height:60px;
+    z-index:1;
+}
+
+
+.header_content {
+   
+   
+   width: 80%;
+   height:90px;
+   min-width:1200px;
+   max-width:1300px;
+   margin: 0 auto;/*центрирует container в совокупности с шириной экрана*/
+}
+.container {
+    width:80%;
+  /*border:1px solid #b8c9e9;*/ 
+    height:100%;
+   position:relative;
+   top:50px;
+    height:600px;
+    min-width:1200px;
+    max-width:1300px;
+    margin: 0 auto;/*центрирует container в совокупности с шириной экрана*/
+}
+
+ .header_bottom {
+    height:40px;
+    border:1px solid #a3a5f2;
+     border:1px solid #3dc200;
+     background-color:#fdffe7;
+}
+
+
+
+
+.sidebar2 {
+    width:21.8%;
+    float:right;
+    padding-bottom:10px; 
+}
+
+.sidebar2_content {
+    border:1px solid #d8d8d8;
+    height:333px;
+    margin-left:13px;
+    margin-top:15px;
+    background-color:#ffffff;
+}
+
+
+.author {
+    background-color:#f2f2f2;
+    padding: 10px 30px 0px 25px;
+    border-bottom:1px  dashed #d9d9d9;
+}
+
+.phone_number {
+    border-bottom:1px dashed #d8d8d8;
+    padding-left:25px;
+}
+/*---------------------------------------------------*/
+
+
+fieldset {
+    border:1px solid #bec8f2;
+    width:500px;
+    margin: 0 auto;/*центрирует container в совокупности с шириной экрана*/
+}
+    fieldset legend {
+        text-align:center;
+        color:#2d3acc;
+    }
+
+.declarations {
+    
+    width:100%;
+    border-spacing: 0 13px;
+}
+
+tr {
+    
+    
+}
+td {
+    border:1px  solid #b1b1b1;
+    height:120px;
+   background-color:#ffffff;
+}
+
+
+/*Контейнеры для объявлений на главной странице*/
+
+.container_forDeclaration {
+    height:100%;
+    width:100%;
+    
+    
+}
+
+.photo {
+border:1px  solid #aaaaaa;
+height:98%;
+width:20%;
+background-color: #e4e4e4;
+}
+
+.container_title {
+    margin:5px 0px 5px 30px;
+    display:inline-block;
+    height:20px;
+    width:100%;
+    
+    
+    bottom:217px;
+     left:27%;
+      
+      
+}
+
+.main_declaration_content {
+    position:relative;
+    left:20.4%;
+    bottom:-40px;
+   height:100%;
+   width:70%;
+   bottom:120px;
+  
+}
+
+.data {
+    width:100%;
+    margin:0px 0px 0px 30px;
+    display:inline-block;
+    
+    bottom:50px;
+}
+
+
+/*Непосредственно страница для просмотра объявлений ViewCurrentDeclarationHome*/
+.photo_container {
+border: 1px solid #c7c7c7;
+ background-color:#fefefe;
+ width:78%;
+  margin-top:15px;
+}
+
+.slider {
+    margin-left:auto;
+    margin-right:auto;
+   
+    width:930.99px;
+}
+
+.title_container {
+    border: 1px  dashed #c7c7c7;
+     margin-top:15px;
+     line-break: loose;
+      background-color:#fefefe;
+      width:78%;
+      
+}
+
+.title_container_2 {
+    padding: 0px 30px 0px 25px;
+    white-space: nowrap;
+}
+
+.Title_name {
+    display: inline-block;
+}
+.Title_coast {
+    display: inline-block;
+    text-align:right;
+    float:right;
+}
+.description {
+  border: 1px solid #c7c7c7;
+     margin-top:20px;
+      background-color:#ffffff;
+      width:94.5%;
+      padding: 25px 25px 25px 25px;
+      font-size:15px;
+}
+
+.main_photo {
+     
+    width:78%;
+    margin-top:15px;
+}
+
+.slider_main_photo {
+     margin-left:auto;
+    margin-right:auto;
+    border:1px solid #3dc200;
+    width:600px;
+    padding: 15px 15px 15px 15px;
+    background-color:#ffffff;
+}
+
+
+.Category {
+    border: 1px solid #c7c7c7;
+    margin-top:15px;
+    float:right;
+    width:40%;
+    padding: 15px 15px 15px 15px;
+    background-color:#ffffff;
+}

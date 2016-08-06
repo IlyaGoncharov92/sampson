@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <link href="~/Content/AddDeclaration.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+
+
+    <div class="header">
+        <div class="header_content">
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div><!--end .header-->
+
+
+
+    <div class="container">
+        <div class="header_bottom">
+
+        </div>
+
+        
+
+        <div class="content">
+
+            @RenderBody()
+            <!--end .content-->
+        </div>
+
+
+        <!-- end .container -->
+    </div>
+
+
+
+</body>
+</html>

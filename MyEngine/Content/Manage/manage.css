@@ -1,0 +1,135 @@
+﻿
+.mContainer {
+    border-top: 1px solid #d2d2d2;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.mContainer_content{
+    margin-top: 25px;
+}
+
+/*======================= user ===========================*/
+
+.user_photo {
+    width: 150px;
+    height: 150px;
+    border-width: 1px;
+    border-color: #c1c1c1;
+    border-style: solid;
+    box-shadow: 0 0 17px rgb(62, 62, 62);
+    position: relative;
+}
+
+.user_img{
+    width: 150px;
+    height: 150px;
+}
+
+.displayed{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.load_gif{
+    position: absolute;
+    z-index: 950;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px;
+    width: 50px;
+}
+
+input[class*=img_file] {
+    opacity: 0;
+    position: fixed;
+    cursor: pointer;
+    border: 2px;
+    z-index: -1;
+}
+
+
+.user_photo_wrap{
+    position: absolute;
+    top: 77%;
+    border: 1px solid;
+    width: 148px;
+    height: 32px;
+    background: black;
+    opacity: 0.5;
+}
+
+.user_photo_wrap span{
+    margin-left: 24px;
+    color: white;
+}
+
+/*======================= Navigate ===========================*/
+
+/*======================= Navigate ===========================*/
+
+.mContent h4{
+    color: #824cac;
+    font: normal 13px/21px "Arial","geneva",sans-serif;
+    margin: 24px 0 0;
+    padding: 13px 0 0;
+}
+
+.mContent h4 a{
+    font-size: 18px;
+    color: #29ab13;
+    font-weight: normal;
+}
+
+.mContent ul{
+    width: 150px;
+    border-top: 1px solid #d2d2d2;
+    margin: 17px 0 0;
+    padding-top: 12px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.mContent li{
+    padding: 6px 0 5px;
+    line-height: 14px;
+    white-space: nowrap;
+    list-style: none;
+}
+
+.mContent li a{
+    font-size: 13px;
+    line-height: 13px;
+    color: #767676;
+    margin-right: 7px;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mContent li:hover a{
+    color: #26d21c;
+    transition: .2s;
+}
+
+.mContent li:active a{
+    color: #008313;
+    transition: .2s;
+}
+
+
+.mContent{
+    width: 17%;
+    position: absolute;
+}
+/*======================= Navigate.end ===========================*/
+
+/*======================= Объявления ===========================*/
+.mContent_declarations {
+    word-break: break-all;
+    width: 83%;
+    min-height: 437px;
+    float: right;
+}
