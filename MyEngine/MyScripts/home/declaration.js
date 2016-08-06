@@ -79,7 +79,7 @@
     }
 
     /*================== Карусель ==================*/
-    //adasdasd
+    //asdawfwffewfwfwef
     var countElement = 0,
         count = 0;
 
