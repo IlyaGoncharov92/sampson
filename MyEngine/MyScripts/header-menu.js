@@ -17,16 +17,17 @@ myApp.controller('HeaderMenuCtrl', function ($scope, $http, $document) {
             $scope.loadLoginMenu = '/Account/Login';
         }
     }
+    
+    $(document).on('click', function (event) {
+        var elem = $(event.target).closest('.popup_login_content').length,
+            elem2 = $(event.target).closest('.header_login').length;
 
-    $document.on('click', function (event) {
-        var elem = angular.element(document.querySelector(".popup_login"));
-        var elem2 = angular.element(document.querySelector(".header_login"));
-
-        if (elem.find(event.target).length === 0 && elem2.find(event.target).length === 0) {
-            $scope.popupVisible = false;
-            $scope.$apply();
-        }   
-    });
+        if (elem2 || elem)
+            return;
+        
+        $scope.popupVisible = false;
+        $scope.$apply();
+    })
 
     $(document).on("click", ".popup_office_nav a", function () {
         $scope.popupVisible = false;
