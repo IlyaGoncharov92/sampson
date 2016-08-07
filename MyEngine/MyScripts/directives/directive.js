@@ -39,6 +39,46 @@ myApp.directive('popUpDialog', ['$http', function ($http) {
     };
 }]);
 
+myApp.directive('carousel', ['$http', function ($http) {
+    return {
+        restrict: 'E',
+        scope: false,
+        templateUrl: 'Home/LoadCarousel',
+        link: function ($scope, element, attrs) {
+            $scope.title = attrs.carouselTitle;
+
+            var url = attrs.carouselDataUrl,
+                countElement = 0,
+                count = 0;
+
+            $http.get(url).success(function (data) {
+                $scope.slideDeclarations = data;
+                for (var d in data)
+                    countElement++;
+                countElement = countElement - 6;
+            })
+
+            $scope.slideMove = function (move) {
+                if (countElement > 0) {
+                    if (move == 'back') {
+                        if (count > 0)
+                            count--;
+                    }
+                    if (move == 'next') {
+                        if (count < countElement)
+                            count++;
+                    }
+                }
+
+                $('.carousel_content').animate({
+                    right: count * 194,
+                    transition: ".5s linear"
+                });
+            }
+        }
+    };
+}]);
+
 myApp.directive('popImgDropMouseenter', function () {
     return {
         restrict: 'A',
@@ -105,3 +145,17 @@ myApp.directive('imgDropMouseenter', function () {
         }
     };
 });
+
+myApp.directive('ngLoad', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var fn = $parse(attrs.ngLoad);
+            element.on('load', function (event) {
+                scope.$apply(function () {
+                    fn(scope, { $event: event });
+                });
+            });
+        }
+    };
+}]);

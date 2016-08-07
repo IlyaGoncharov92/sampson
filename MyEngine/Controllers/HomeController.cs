@@ -132,7 +132,6 @@ namespace MyEngine.Controllers
                    .Where(d => d.Category.IdTitle == categoryId)
                    .Where(d => d.DeclarationType == "parent");
 
-            //new{} - создает анонимный тип данных pictures
             var pictures = from img in images
                            join dec in declaration
                            on img.DeclarationId equals dec.Id
@@ -219,6 +218,13 @@ namespace MyEngine.Controllers
             var images = db.Images.Where(i => i.DeclarationId == id).Where(i => i.ImageOrder == 0);
 
             return new JsonResult { Data = images, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        public ActionResult LoadCarousel()
+        {
+            if (this.Request.IsAjaxRequest())
+                return PartialView();
+            return View();
         }
 
         public JsonResult LoadCarouselData(int declarationId)

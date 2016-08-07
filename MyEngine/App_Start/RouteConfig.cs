@@ -13,13 +13,11 @@ namespace MyEngine
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}/{id1}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, id1 = UrlParameter.Optional }
             );
-
         }
     }
 }

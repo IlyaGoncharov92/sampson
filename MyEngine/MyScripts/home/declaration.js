@@ -4,6 +4,8 @@
         dataImg = [],
         imgParentCount = 0;
 
+    $scope.carouselDeclarationId = declarationId;
+
     $http.get('/Home/LoadDeclration/?id=' + declarationId)
         .success(function (data) {
             dataDec = data;
@@ -23,7 +25,6 @@
                         if (data[i].Type == "child")
                             imgFilter.push(data[i]);
 
-                    //console.log('imgParentCount ' + imgParentCount)
                     $scope.imageChildPaths = imgFilter;
                     $scope.loadNewContent(declarationId);
                 });
@@ -53,7 +54,6 @@
     var imageCount = 0;
     $scope.imgLoad = function () {
         imageCount++;
-        //console.log('imageCount=' + imageCount + '   imgParentCount=' + imgParentCount)
         if (imageCount == imgParentCount)
             for (var i in dataImg)
                 new Image().src = "/Files/" + dataImg[i].ImagePath;
@@ -77,51 +77,6 @@
             jQuery('.content_photos img').effect('slide', { direction: direction });
         }
     }
-
-    /*================== Карусель ==================*/
-    //asdawfwffewfwfwef
-    var countElement = 0,
-        count = 0;
-
-    $http.get('/Home/LoadCarouselData/?declarationId=' + declarationId).success(function (data) {
-        $scope.slideDeclarations = data;
-        for (var d in data)
-            countElement++;
-        countElement = countElement - 5;
-    })
-
-    $scope.slideMove = function (move) {
-        if (countElement > 0) {
-            if (move == 'back') {
-                if (count > 0)
-                    count--;
-            }
-            if (move == 'next') {
-                if (count < countElement)
-                    count++;
-            }
-        }
-
-        $('.carousel_content').animate({
-            right: count * 194,
-            transition: ".5s linear"
-        });
-    }
-
-    /*================== Карусель.end ==================*/
 })
 
-myApp.directive('ngLoad', ['$parse', function ($parse) {
-    return {
-        restrict: 'A',
-        link: function (scope, element, attrs) {
-            var fn = $parse(attrs.ngLoad);
-            element.on('load', function (event) {
-                scope.$apply(function () {
-                    fn(scope, { $event: event });
-                });
-            });
-        }
-    };
-}]);
 

@@ -44,24 +44,7 @@
         </div>
     </div>
 
-    <div class="carousel">
-        <h4>Похожие товары</h4>
-        <div class="silde_back" ng-click="slideMove('back')"></div>
-        <div class="carousel_container">
-            <div class="carousel_content">
-                <div ng-repeat="declaration in slideDeclarations" class="carousel_item">
-                    <div class="carousel_image">
-                        <a href="/home/declaration/{{declaration.Id}}">
-                            <img ng-src="/Files/{{declaration.ImagePath}}" />
-                        </a>
-                    </div>
-                    <div class="carousel_detail">
-                        <span class="slide_title" ng-bind="declaration.Title"></span>
-                        <span class="slide_price" ng-bind="declaration.Coast != null ? (declaration.Coast | number) + ' р.' : '' "></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="silde_next" ng-click="slideMove('next')"></div>
-    </div>
+    <carousel carousel-title="Похожие товары"
+              carousel-data-url="/Home/LoadCarouselIndex/?declarationId={{carouselDeclarationId}}">
+    </carousel>
 </div>

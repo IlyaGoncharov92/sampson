@@ -101,13 +101,11 @@
 
     $(function () {
         $('#section').change(function () {
-            // получаем выбранный id
             var id = $(this).val();
             $.ajax({
                 type: 'GET',
                 url: '@Url.Action("GetItems")/' + id,
                 success: function (data) {
-                    // заменяем содержимое присланным частичным представлением
                     $('#category').replaceWith(data);
                 }
             });

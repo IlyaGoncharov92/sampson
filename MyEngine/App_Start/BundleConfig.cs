@@ -40,7 +40,16 @@ namespace MyEngine
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/site.css",
+                "~/Content/Account/Registrations.css",
+                "~/Content/Account/LoginMenu.css",
+                "~/Content/Home/popUpDialog.css",
+                "~/Content/Section/Services-Contacts.css",
+                "~/Content/Section/Services-Contacts.css",
+                "~/Content/Section/History.css",
+                "~/Content/Section/Parters.css",
+                "~/Content/Section/Services-Contacts.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

@@ -155,7 +155,6 @@ namespace MyEngine.Controllers
                 if (upload != null)
                 {
                     DateTime current = DateTime.Now;
-                    // получаем имя файла
                     fileName = System.IO.Path.GetFileName(upload.FileName);
                     fileName = fileName.Substring(fileName.LastIndexOf('.'));
                     fileName = id + "-" + current.ToString("dd/MM/yyyy_H:mm").Replace(":", "_")

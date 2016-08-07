@@ -9,7 +9,6 @@ using MyEngine.Models;
 using System.Data.Entity;
 using ImageResizer;
 
-
 namespace MyEngine.Controllers
 {
     [Authorize(Roles = "admin, moderator")]
@@ -25,7 +24,6 @@ namespace MyEngine.Controllers
         [HttpGet]
         public ActionResult ViewAllUsers()
         {
-            //Сортировка пользователя в порядке даты его регистрации + связь с таблицей ролей
             var us = db.Users.OrderByDescending(u => u.CreationDate).Include(p => p.Role);
             return View(us);
         }
@@ -201,7 +199,7 @@ namespace MyEngine.Controllers
                 db.Declarations.Add(declaration);
                 db.SaveChanges();
 
-                int i = 0; //счетчик для фотографий
+                int i = 0;
                 foreach (var file in uploads)
                 {
                     if (file != null)

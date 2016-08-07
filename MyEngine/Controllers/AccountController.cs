@@ -17,6 +17,11 @@ namespace MyEngine.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public JsonResult CheckAuthorize()
         {
             string urlAuthorize = "";
@@ -37,11 +42,6 @@ namespace MyEngine.Controllers
         {
             if (this.Request.IsAjaxRequest())
                 return PartialView();
-            return View();
-        }
-
-        public ActionResult Index()
-        {
             return View();
         }
 
@@ -124,7 +124,5 @@ namespace MyEngine.Controllers
             return View(model);
         }
         /*-----------------------------------------------------------------------*/
-
-
     }
 }

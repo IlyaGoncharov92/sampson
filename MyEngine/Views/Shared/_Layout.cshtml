@@ -8,9 +8,6 @@
     <link rel="shortcut icon" href="/Files/Images/favicon.ico" type="image/x-icon">
     <link href="~/Content/flexslider.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
-    <link href="~/Content/Account/Registrations.css?6" rel="stylesheet"/>
-    <link href="~/Content/Account/LoginMenu.css?1" rel="stylesheet" />
-    <link href="~/Content/Home/popUpDialog.css" rel="stylesheet" />
 </head>
 <body>
     <div ng-controller="HeaderMenuCtrl" class="header_menu">
@@ -91,8 +88,8 @@
 
     <div class="container_gif"></div>
 
-    <div class="container" id="container_id">
-        <div data-ng-view="" id="div-view" class="view-slide-in"></div>
+    <div class="container" id="container_id" ng-cloak>
+        <div data-ng-view="" id="div-view" class="view-slide-in" ng-cloak></div>
     </div>
     
     <div style="display: none">@RenderBody()</div>
@@ -105,7 +102,6 @@
     <script src="~/MyScripts/drop-image-animation.js"></script>
     <script src="~/MyScripts/header-menu.js"></script>
     <script src="~/MyScripts/layout.js"></script>
-    <script src="~/MyScripts/home/index.js"></script>
     <script src="~/MyScripts/directives/directive.js"></script>
     <script src="~/MyScripts/home/catalog.js"></script>
     <script src="~/MyScripts/home/declaration.js"></script>

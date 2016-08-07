@@ -28,7 +28,7 @@ myApp.controller('UnderMenuCtrl', function ($scope, $http, $routeParams, $locati
         }
 
         //Срабатывает если сделан переход в декларации
-        //Пересылает в функцию - womens, иначе сервер получит пустоту
+        //Пересылает в функцию - womens, иначе сервер получит null
         if ($location.path().indexOf('/home/declaration') > -1) {
             sectionId = 'womens';
             $scope.section = sectionId;             //Изменить

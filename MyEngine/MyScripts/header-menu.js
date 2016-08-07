@@ -13,14 +13,12 @@ myApp.controller('HeaderMenuCtrl', function ($scope, $http, $document) {
 
     $scope.clickLoginContent = function () {
         $scope.popupVisible = !$scope.popupVisible;
-
-        $http.get('/Account/CheckAuthorize')
-            .success(function (data) {
-                $scope.loadLoginMenu = data;
-            })
+        if ($scope.loadLoginMenu != '/Account/LoginMenu') {
+            $scope.loadLoginMenu = '/Account/Login';
+        }
     }
 
-    $document.bind('click', function (event) {
+    $document.on('click', function (event) {
         var elem = angular.element(document.querySelector(".popup_login"));
         var elem2 = angular.element(document.querySelector(".header_login"));
 
@@ -42,8 +40,7 @@ myApp.controller('HeaderMenuCtrl', function ($scope, $http, $document) {
             setTimeout(function () {
                 $scope.popupVisible = true;
                 $scope.$apply();
-            }, 900)
+            }, 500)
         });
     }
 })
-

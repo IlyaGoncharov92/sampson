@@ -72,6 +72,4 @@ myApp.config(function ($routeProvider, $locationProvider) {
              templateUrl: '/Manage/Index',
              controller: 'ManageCtrl'
          });
-
-    //$routeProvider.otherwise({ redirectTo: '/Home/NotAvailable' });
 });

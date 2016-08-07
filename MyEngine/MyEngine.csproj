@@ -486,7 +486,6 @@
     <Content Include="MyScripts\header-menu.js" />
     <Content Include="MyScripts\home\catalog.js" />
     <Content Include="MyScripts\home\declaration.js" />
-    <Content Include="MyScripts\home\index.js" />
     <Content Include="MyScripts\layout.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="MyScripts\manage\liked.js" />
@@ -543,7 +542,6 @@
     <Content Include="Views\Section\History.cshtml" />
     <Content Include="Views\Section\Partners.cshtml" />
     <Content Include="Views\Section\Contacts.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Catalog.cshtml" />
     <Content Include="Views\Home\UnderMenu.cshtml" />
     <Content Include="Views\Home\Declaration.cshtml" />
@@ -557,6 +555,8 @@
     <Content Include="Views\Manage\Liked.cshtml" />
     <Content Include="Views\Home\PopUpDialog.cshtml" />
     <Content Include="Views\Manage\Messages.cshtml" />
+    <Content Include="Views\Home\LoadCarousel.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

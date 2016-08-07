@@ -114,7 +114,6 @@ namespace MyEngine.Models
         public IEnumerable<Declaration> Declarations { get; set; }
     }
 
-    //Мужская, Женская, Детская
     public class Section
     {
         public int Id { get; set; }
@@ -133,5 +132,4 @@ namespace MyEngine.Models
         public Declaration Declaration { get; set; }
         public IEnumerable<Declaration> Declarations { get; set; }
     }
-
 }

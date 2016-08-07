@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="check-field">
                 @Html.EditorFor(m => m.RememberMe)
                 <label>Запомнить меня</label>
@@ -28,7 +28,7 @@
             <input type="submit" value="Войти">
 
             <button ng-click="clickLoadRegister()" onclick="return false">Регистрация</button>
-
+           
             @Html.ValidationSummary(true)
         }
     </div>
